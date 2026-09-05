@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Reveal from "./Reveal";
+import { Reveal } from "./Reveal";
 
 export default function FeaturedProject() {
   return (
@@ -15,19 +15,13 @@ export default function FeaturedProject() {
             </h2>
           </div>
 
-          <Link
-            href="/projects"
-            className="hidden font-mono text-[9px] uppercase tracking-[0.18em] text-white/40 transition-colors hover:text-accent sm:block"
-          >
+          <Link href="/projects" className="hidden font-mono text-[9px] uppercase tracking-[0.18em] text-white/40 transition-colors hover:text-accent sm:block">
             View all work ↗
           </Link>
         </div>
 
         <Reveal>
-          <Link
-            href="/projects/careerupai"
-            className="group relative block overflow-hidden rounded-[24px] border border-white/[0.10] bg-[#08090d] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/25 sm:p-10"
-          >
+          <Link href="/projects/careerupai" className="group relative block overflow-hidden rounded-[24px] border border-white/[0.10] bg-[#08090d] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/25 sm:p-10">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_40%,rgba(91,110,245,0.12),transparent_35%)] opacity-80" />
             <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] [background-size:44px_44px]" />
 
@@ -40,8 +34,7 @@ export default function FeaturedProject() {
                   CareerUp<span className="text-accent">AI</span>
                 </h3>
                 <p className="mt-5 max-w-xl text-sm leading-7 text-ink-dim sm:text-base">
-                  A career platform designed to turn resume and profile data into
-                  clearer, more useful career decisions.
+                  A career platform designed to turn resume and profile data into clearer, more useful career decisions.
                 </p>
               </div>
 
@@ -57,10 +50,7 @@ export default function FeaturedProject() {
           </Link>
         </Reveal>
 
-        <Link
-          href="/projects"
-          className="mt-6 block text-center font-mono text-[9px] uppercase tracking-[0.18em] text-white/40 transition-colors hover:text-accent sm:hidden"
-        >
+        <Link href="/projects" className="mt-6 block text-center font-mono text-[9px] uppercase tracking-[0.18em] text-white/40 transition-colors hover:text-accent sm:hidden">
           View all work ↗
         </Link>
       </div>
