@@ -18,6 +18,15 @@ const projects = [
   },
   {
     number: "02",
+    title: "Nitra Chat",
+    category: "REAL-TIME · FULL STACK",
+    description:
+      "A premium messaging platform inspired by modern chat products, with a custom Nitra identity, rich interaction design, database-backed users and conversations, and a roadmap toward real-time communication.",
+    href: "/projects/nitra-chat",
+    status: "Active development",
+  },
+  {
+    number: "03",
     title: "Personal AI",
     category: "AI · AUTOMATION",
     description:
