@@ -18,7 +18,7 @@ const projects = [
     text: "Full-stack platform designed to help users create and analyze CVs/resumes, improve profiles, receive career guidance, and get personalized job recommendations. Covers frontend, backend, database functionality, and AI-driven workflows.",
   },
   {
-    title: "Real-Time Chat Application",
+    title: "Nitra Chat",
     meta: "Telegram-Inspired Web Application · Full Stack",
     text: "Responsive messaging application focused on interactive communication, modern UI, backend functionality, deployment, and a clean usable chat experience.",
   },
@@ -50,7 +50,7 @@ export default function CVPage() {
                 <div>
                   <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent print:text-black/45">Curriculum Vitae</p>
                   <h1 className="mt-4 font-display text-4xl font-semibold tracking-[-0.05em] text-white sm:text-6xl print:text-black">Nityansh Rupesh Bahadur</h1>
-                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40 print:text-black/55">Full-Stack Web Developer · Python Developer · AI Application Enthusiast</p>
+                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40 print:text-black/55">Full Stack Developer · Python Developer · AI Application Enthusiast</p>
                 </div>
                 <div className="font-mono text-[9px] leading-6 text-white/35 sm:text-right print:text-black/55">
                   <div>Lucknow, Uttar Pradesh</div>
