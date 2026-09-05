@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Reveal from "./Reveal";
+import { Reveal } from "./Reveal";
 
 const prompts = ["Who is Nityansh?", "What is he building?", "Tech stack?", "CareerUpAI?"];
 
