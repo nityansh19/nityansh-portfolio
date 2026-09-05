@@ -27,7 +27,7 @@ const projects = [
   },
   {
     number: "03",
-    title: "Personal AI",
+    title: "Personal AI Assistant",
     category: "AI · AUTOMATION",
     description:
       "An experimental personal AI system exploring context, tools, developer workflows, automation, and a personal knowledge layer.",
