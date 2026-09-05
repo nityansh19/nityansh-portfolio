@@ -16,9 +16,8 @@ export const careerUpFeatures = [
 
 export const projects = [
   { num: "01", name: "CareerUpAI", tag: "AI · Full Stack", disabled: false },
-  { num: "02", name: "Coming Soon", tag: "In the pipeline", disabled: true },
-  { num: "03", name: "Coming Soon", tag: "In the pipeline", disabled: true },
-  { num: "04", name: "Coming Soon", tag: "In the pipeline", disabled: true },
+  { num: "02", name: "Nitra Chat", tag: "Real-Time · Full Stack", disabled: false },
+  { num: "03", name: "Personal AI Assistant", tag: "AI · Automation", disabled: false },
 ];
 
 export type TechGroup = "frontend" | "backend" | "database" | "exploring";
