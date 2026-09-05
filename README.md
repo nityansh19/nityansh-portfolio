@@ -1,38 +1,37 @@
 # Nityansh Rupesh Bahadur — Portfolio
 
-Next.js 14 (App Router) + TypeScript + Tailwind CSS + Framer Motion.
+A premium, interactive portfolio built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
 
-## Run locally
+## Tech Stack
+
+- Next.js 14 (App Router)
+- React 18
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+## Run Locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open http://localhost:3000
+Then open `http://localhost:3000`.
 
-## Build for production
+## Production Build
 
 ```bash
 npm run build
 npm run start
 ```
 
-## Structure
+## Architecture
 
-- `app/` — root layout, global styles, and the single page that assembles every section
-- `components/` — one component per section (Hero, About, CurrentlyBuilding, Projects,
-  TechStack, Journey, Philosophy, Terminal, Contact, Footer), plus shared pieces
-  (Loader, Navigation, DotNav, CustomCursor, MagneticButton, Reveal)
-- `lib/data.ts` — all copy and content in one place, so text/links/projects can be
-  updated without touching component code
+The portfolio is being refactored from a large single-page experience into a focused multi-page architecture.
 
-## Where to edit things
+See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for the planned structure, page responsibilities, component mapping, and migration strategy.
 
-- Swap the resume link in `components/Hero.tsx` once you have a PDF to link to.
-- Update project entries, tech stack nodes, and timeline in `lib/data.ts`.
-- Replace the CareerUpAI preview placeholder in `components/CurrentlyBuilding.tsx`
-  with real screenshots once available.
+## Project
 
-Respects `prefers-reduced-motion` throughout — animations are still present but
-skip the more elaborate canvas motion for users who've asked for less movement.
+This portfolio showcases selected work, technical skills, ongoing projects, and an interactive terminal experience while keeping the homepage focused and concise.
