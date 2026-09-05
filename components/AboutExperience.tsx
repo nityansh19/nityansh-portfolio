@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
 const principles = [
   ["01", "Start with the problem", "Understand what is worth solving before deciding what to build."],
@@ -32,14 +33,44 @@ const journey = [
 ];
 
 const technologies = [
-  ["Frontend", "HTML · CSS · JavaScript · React · Vite"],
-  ["Backend", "Node.js · Express"],
-  ["Database", "MongoDB"],
-  ["Exploring", "Python · AI · Docker · Linux · DevOps"],
+  {
+    number: "01",
+    group: "Frontend",
+    mode: "CORE",
+    description: "Interfaces, motion, responsive systems",
+    stack: ["HTML", "CSS", "JavaScript", "React", "Vite"],
+    signal: "UI / MOTION / UX",
+  },
+  {
+    number: "02",
+    group: "Backend",
+    mode: "CORE",
+    description: "APIs, application logic, server-side systems",
+    stack: ["Node.js", "Express"],
+    signal: "API / LOGIC / SERVICES",
+  },
+  {
+    number: "03",
+    group: "Database",
+    mode: "CORE",
+    description: "Application data and persistence",
+    stack: ["MongoDB"],
+    signal: "DATA / MODELS / FLOW",
+  },
+  {
+    number: "04",
+    group: "Exploring",
+    mode: "BUILDING",
+    description: "The next layer of the engineering stack",
+    stack: ["Python", "AI", "Docker", "Linux", "DevOps"],
+    signal: "AI / SYSTEMS / INFRA",
+  },
 ];
 
 export default function AboutExperience() {
   const reducedMotion = useReducedMotion();
+  const [activeTech, setActiveTech] = useState<string>("Frontend");
+  const active = technologies.find((item) => item.group === activeTech) ?? technologies[0];
 
   return (
     <main className="min-h-screen px-6 pb-32 pt-36 sm:px-8 md:pt-44">
@@ -193,37 +224,131 @@ export default function AboutExperience() {
         </section>
 
         <section className="mt-24 border-t border-line pt-16 md:mt-32 md:pt-24">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent/70">
-                TECHNOLOGY
-              </p>
+              <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.2em] text-accent/70">
+                <span className="inline-flex h-2 w-2 rounded-full bg-accent shadow-[0_0_16px_rgba(91,110,245,.75)]" />
+                Technology / Live map
+              </div>
               <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">
                 The current toolkit.
               </h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-ink-faint">
+                Hover a system to inspect it. The stack is a living surface, not a static list.
+              </p>
             </div>
-            <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/20">
-              Always evolving
-            </span>
+
+            <div className="hidden items-end gap-2 font-mono text-[8px] uppercase tracking-[0.16em] text-white/20 sm:flex">
+              <span>Cursor</span>
+              <span className="text-accent/60">→</span>
+              <span>Inspect</span>
+            </div>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {technologies.map(([group, stack], index) => (
-              <motion.div
-                key={group}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ delay: index * 0.07, duration: 0.6 }}
-                className="border border-white/[0.08] bg-white/[0.018] p-7"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent/70">0{index + 1}</span>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/20">{group}</span>
+          <div className="mt-10 grid gap-4 md:grid-cols-[1.45fr_0.55fr]">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {technologies.map((item, index) => {
+                const isActive = activeTech === item.group;
+
+                return (
+                  <motion.button
+                    type="button"
+                    key={item.group}
+                    onMouseEnter={() => setActiveTech(item.group)}
+                    onFocus={() => setActiveTech(item.group)}
+                    whileHover={reducedMotion ? undefined : { y: -6 }}
+                    transition={{ duration: 0.25 }}
+                    className={`group relative min-h-[220px] overflow-hidden rounded-[22px] border p-6 text-left transition-all duration-300 ${
+                      isActive
+                        ? "border-accent/45 bg-accent/[0.055] shadow-[0_24px_70px_rgba(40,50,120,.18)]"
+                        : "border-white/[0.08] bg-white/[0.018] hover:border-white/[0.16] hover:bg-white/[0.03]"
+                    }`}
+                  >
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(91,110,245,.18),transparent_38%)] opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full border border-accent/20 transition-transform duration-500 group-hover:scale-125" />
+                    <div className="pointer-events-none absolute -right-4 top-4 h-1.5 w-1.5 rounded-full bg-accent opacity-70 shadow-[0_0_14px_rgba(91,110,245,.9)]" />
+
+                    <div className="relative z-10 flex items-center justify-between">
+                      <span className="font-mono text-[9px] tracking-[0.16em] text-accent">{item.number}</span>
+                      <span className="rounded-full border border-white/[0.08] bg-white/[0.025] px-2.5 py-1 font-mono text-[7px] uppercase tracking-[0.16em] text-white/30">
+                        {item.mode}
+                      </span>
+                    </div>
+
+                    <div className="relative z-10 mt-10">
+                      <div className="flex items-end justify-between gap-4">
+                        <h3 className="font-display text-2xl font-medium tracking-[-0.04em] text-white/85 sm:text-3xl">
+                          {item.group}
+                        </h3>
+                        <span className={`font-mono text-[8px] uppercase tracking-[0.16em] transition-colors ${isActive ? "text-accent/80" : "text-white/15"}`}>
+                          scan
+                        </span>
+                      </div>
+                      <p className="mt-3 max-w-xs text-sm leading-6 text-ink-dim">{item.description}</p>
+                    </div>
+
+                    <div className="relative z-10 mt-7 flex flex-wrap gap-2">
+                      {item.stack.map((tool, toolIndex) => (
+                        <span
+                          key={tool}
+                          className={`rounded-full border px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.11em] transition-all duration-300 ${
+                            isActive
+                              ? "border-accent/20 bg-accent/[0.06] text-white/55"
+                              : "border-white/[0.07] bg-white/[0.015] text-white/30"
+                          }`}
+                        >
+                          {tool}
+                          <span className="ml-1 text-white/15">{String(toolIndex + 1).padStart(2, "0")}</span>
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  </motion.button>
+                );
+              })}
+            </div>
+
+            <motion.aside
+              key={active.group}
+              initial={reducedMotion ? undefined : { opacity: 0, y: 8 }}
+              animate={reducedMotion ? undefined : { opacity: 1, y: 0 }}
+              className="relative min-h-[220px] overflow-hidden rounded-[22px] border border-white/[0.08] bg-[#0a0b10] p-6"
+            >
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(91,110,245,.16),transparent_45%)]" />
+              <div className="relative flex h-full min-h-[188px] flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between font-mono text-[8px] uppercase tracking-[0.17em] text-white/20">
+                    <span>Active system</span>
+                    <span className="text-accent">{active.number}</span>
+                  </div>
+                  <div className="mt-8 flex items-center justify-center">
+                    <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-accent/20 bg-accent/[0.035]">
+                      <div className="absolute inset-3 rounded-full border border-white/[0.07]" />
+                      <div className="absolute inset-7 rounded-full border border-accent/30" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_20px_rgba(91,110,245,.9)]" />
+                      {!reducedMotion && (
+                        <motion.div
+                          className="absolute inset-[-9px] rounded-full border border-accent/20 border-t-accent/70"
+                          animate={{ rotate: 360 }}
+                          transition={{ repeat: Infinity, duration: 7, ease: "linear" }}
+                        />
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <p className="mt-7 font-mono text-sm leading-7 text-white/50">{stack}</p>
-              </motion.div>
-            ))}
+
+                <div>
+                  <div className="font-display text-xl tracking-[-0.035em] text-white/80">{active.group}</div>
+                  <div className="mt-2 font-mono text-[8px] uppercase tracking-[0.14em] text-accent/65">{active.signal}</div>
+                  <div className="mt-4 h-px w-full bg-white/[0.08]" />
+                  <div className="mt-3 flex justify-between font-mono text-[8px] uppercase tracking-[0.14em] text-white/20">
+                    <span>State</span>
+                    <span className="text-white/40">ACTIVE</span>
+                  </div>
+                </div>
+              </div>
+            </motion.aside>
           </div>
         </section>
 
