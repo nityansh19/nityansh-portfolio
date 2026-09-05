@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Reveal, { SectionHeading } from "./Reveal";
+import { Reveal, SectionHeading } from "./Reveal";
 
 export default function BuildingPreview() {
   return (
