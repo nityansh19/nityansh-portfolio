@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 
-const prompts = ["Who is Nityansh?", "What is he building?", "Tech stack?", "CareerUpAI?"];
+const prompts = ["Who is Nityansh?", "What is he building?", "What does he use?", "Nivora?"];
 
 export default function TerminalPreview() {
   return (
@@ -19,14 +19,13 @@ export default function TerminalPreview() {
               <div>
                 <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.20em] text-accent/80">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-                  Curious?
+                  Want to know more?
                 </div>
                 <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
-                  Talk to my portfolio.
+                  Ask the portfolio.
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-ink-dim">
-                  Ask a question and let the portfolio answer. Projects, skills,
-                  learning direction, philosophy and more.
+                  There is a little terminal here that can answer questions about my projects, stack, experience, and what I am learning.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
@@ -42,7 +41,7 @@ export default function TerminalPreview() {
               </div>
 
               <div className="flex shrink-0 items-center gap-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 transition-colors group-hover:text-accent">
-                Open terminal
+                Try it
                 <span className="text-base transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
               </div>
             </div>
