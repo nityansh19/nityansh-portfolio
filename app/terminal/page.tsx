@@ -3,14 +3,14 @@ import Terminal from "@/components/Terminal";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terminal — Nityansh Rupesh Bahadur",
-  description: "Talk to Nityansh's interactive portfolio terminal.",
+  title: "Portfolio Terminal — Nityansh Rupesh Bahadur",
+  description: "Ask questions about Nityansh's projects, skills, experience, and current work.",
 };
 
 const signals = [
-  ["01", "Ask naturally", "No commands. Ask about projects, skills, journey, or what Nityansh is building."],
-  ["02", "Recruiter focused", "Explore the information that matters when evaluating a developer and their work."],
-  ["03", "No guessing", "The assistant is intentionally limited to the portfolio's available knowledge."],
+  ["01", "Ask normally", "You do not need to learn a command. Ask about a project, a technology, experience, or what I am working on."],
+  ["02", "Useful for recruiters", "Quickly find the things you would normally have to dig through a portfolio to find."],
+  ["03", "Based on my portfolio", "If something is not covered here, the terminal will say so instead of making an answer up."],
 ];
 
 export default function TerminalPage() {
@@ -26,36 +26,35 @@ export default function TerminalPage() {
         <header className="max-w-4xl">
           <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.22em] text-accent/80">
             <span className="h-px w-8 bg-accent" />
-            01 / Portfolio Intelligence
+            Portfolio terminal
           </div>
           <div className="mt-6 flex flex-col justify-between gap-7 md:flex-row md:items-end">
             <div>
               <h1 className="font-display text-[clamp(3.5rem,9vw,8rem)] font-semibold leading-[0.84] tracking-[-0.075em]">
-                Talk to the
+                Ask about
                 <br />
-                <span className="text-accent">portfolio.</span>
+                <span className="text-accent">my work.</span>
               </h1>
               <p className="mt-7 max-w-2xl text-base leading-8 text-ink-dim sm:text-lg">
-                Ask questions about Nityansh, his projects, skills, learning
-                direction, or the way he approaches development.
+                If you want a quick answer about me, my projects, the tools I use, or what I am learning, try asking here.
               </p>
             </div>
 
             <Link href="/projects" className="shrink-0 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 transition-colors hover:text-accent">
-              Browse work ↗
+              Browse projects ↗
             </Link>
           </div>
         </header>
 
         <div className="mt-14 grid gap-3 md:grid-cols-3">
-          {signals.map(([number, title, description], index) => (
+          {signals.map(([number, title, description]) => (
             <div
               key={number}
               className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.018] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-accent/25 hover:bg-white/[0.028]"
             >
               <div className="mb-8 flex items-center justify-between font-mono text-[8px] uppercase tracking-[0.18em]">
                 <span className="text-accent/60">{number}</span>
-                <span className="text-white/15">0{index + 1}</span>
+                <span className="text-white/15">Terminal</span>
               </div>
               <h2 className="font-display text-xl text-white/80">{title}</h2>
               <p className="mt-3 text-sm leading-6 text-ink-dim">{description}</p>
@@ -70,10 +69,10 @@ export default function TerminalPage() {
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6">
           <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/20">
-            NITYANSH.AI / SYSTEM ONLINE
+            Portfolio / knowledge base online
           </span>
           <Link href="/contact" className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30 transition-colors hover:text-accent">
-            Need a human? Contact Nityansh ↗
+            Want to talk directly? Contact me ↗
           </Link>
         </div>
       </div>
