@@ -21,7 +21,7 @@ export default function Navigation() {
       initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed bottom-4 left-3 right-3 z-[9999] w-auto max-w-[640px] rounded-full border border-white/[0.12] bg-[#090a0d]/80 px-1.5 py-1.5 shadow-[0_20px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl sm:bottom-6 sm:left-1/2 sm:right-auto sm:w-auto sm:-translate-x-1/2 sm:px-2 sm:py-2"
+      className="fixed bottom-[calc(0.75rem+env(safe-area-inset-bottom))] left-3 right-3 z-[9999] w-auto max-w-[640px] rounded-full border border-white/[0.12] bg-[#090a0d]/80 px-1.5 py-1.5 shadow-[0_20px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl print:hidden sm:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] sm:left-1/2 sm:right-auto sm:w-auto sm:-translate-x-1/2 sm:px-2 sm:py-2"
       aria-label="Main navigation"
     >
       <div className="pointer-events-none absolute left-8 right-8 top-0 h-px bg-white/20" />
@@ -36,7 +36,7 @@ export default function Navigation() {
               key={item.href}
               href={item.href}
               aria-current={isActive ? "page" : undefined}
-              className="relative flex flex-1 items-center justify-center rounded-full px-2 py-2.5 font-mono text-[8px] tracking-[0.09em] whitespace-nowrap transition-colors duration-300 sm:flex-none sm:px-4 sm:py-2 sm:text-[10px] sm:tracking-[0.14em]"
+              className="relative flex min-w-0 flex-1 items-center justify-center rounded-full px-1.5 py-2.5 font-mono text-[8px] tracking-[0.08em] whitespace-nowrap transition-colors duration-300 active:scale-[0.97] sm:flex-none sm:px-4 sm:py-2 sm:text-[10px] sm:tracking-[0.14em]"
               style={{ color: isActive ? "rgba(245,245,247,0.95)" : "rgba(160,163,173,0.65)" }}
             >
               {isActive && (
