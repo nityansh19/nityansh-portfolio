@@ -3,7 +3,7 @@ import ProjectCard from "@/components/ProjectCard";
 
 export const metadata: Metadata = {
   title: "Projects — Nityansh Rupesh Bahadur",
-  description: "Selected products, experiments, and engineering systems built by Nityansh Rupesh Bahadur.",
+  description: "Projects and products built by Nityansh Rupesh Bahadur.",
 };
 
 const projects = [
@@ -12,7 +12,7 @@ const projects = [
     title: "Nivora",
     category: "FINTECH · PRODUCT ENGINEERING",
     description:
-      "A calm personal finance OS for daily expenses, income, savings, budgets, goals, and financial analytics — designed as a reusable product foundation rather than a generic CRUD dashboard.",
+      "A personal finance app for keeping track of everyday spending, income, savings, budgets, goals, and the numbers behind them.",
     href: "/projects/nivora",
     status: "Phase 0 · Foundation",
   },
@@ -21,7 +21,7 @@ const projects = [
     title: "CareerUpAI",
     category: "AI · FULL STACK",
     description:
-      "An AI-powered career platform focused on resume analysis, profile improvement, career guidance, and practical recommendations that turn career information into clearer next steps.",
+      "An AI-powered career platform I’m building around resumes, profiles, career guidance, and helping people find opportunities that fit them better.",
     href: "/projects/careerupai",
     status: "Currently building",
   },
@@ -30,7 +30,7 @@ const projects = [
     title: "Nitra Chat",
     category: "REAL-TIME · FULL STACK",
     description:
-      "A premium messaging platform with a custom product identity, rich interaction design, database-backed users and conversations, and a roadmap toward real-time communication.",
+      "A chat application where I’ve been working through real-time communication, backend logic, database-backed conversations, and the details that make a messaging app feel good to use.",
     href: "/projects/nitra-chat",
     status: "Active development",
   },
@@ -39,7 +39,7 @@ const projects = [
     title: "Personal AI Assistant",
     category: "AI · AUTOMATION",
     description:
-      "An experimental personal AI system exploring context, tools, developer workflows, automation, productivity, and a personal knowledge layer.",
+      "A personal AI project for experimenting with assistants, context, automation, developer workflows, and the idea of having useful tools in one place.",
     href: "/projects/personal-ai",
     status: "Currently building",
   },
@@ -55,28 +55,46 @@ export default function ProjectsPage() {
       </div>
 
       <div className="relative mx-auto max-w-[1180px]">
-        <div className="max-w-3xl">
+        <header className="max-w-4xl">
           <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.22em] text-accent/80">
             <span className="h-px w-8 bg-accent" />
-            Selected Work / 2026
+            03 / Projects
           </div>
-          <h1 className="mt-5 font-display text-[clamp(3.5rem,9vw,8rem)] font-semibold leading-[0.84] tracking-[-0.07em]">
-            Projects
-          </h1>
-          <p className="mt-7 max-w-2xl text-base leading-8 text-ink-dim sm:text-lg">
-            A focused collection of products I am building to solve real problems, sharpen engineering depth, and explore how thoughtful software should feel.
-          </p>
+
+          <div className="mt-6 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h1 className="font-display text-[clamp(3.5rem,9vw,8rem)] font-semibold leading-[0.84] tracking-[-0.07em]">
+                Things I’m
+                <br />
+                <span className="text-white/40">working on.</span>
+              </h1>
+              <p className="mt-8 max-w-2xl text-base leading-8 text-ink-dim sm:text-lg">
+                These are the projects I spend most of my time on. Some are still rough around the edges, which is kind of the point — I’m learning by actually building them.
+              </p>
+            </div>
+
+            <div className="shrink-0 border-l border-white/[0.10] pl-5 font-mono text-[8px] uppercase tracking-[0.16em] text-white/25 md:mb-1">
+              <div>04 projects</div>
+              <div className="mt-2 text-accent/70">02 currently building</div>
+            </div>
+          </div>
+        </header>
+
+        <div className="mt-20 flex items-center gap-4 md:mt-28">
+          <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/20">Project index</span>
+          <span className="h-px flex-1 bg-white/[0.07]" />
+          <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/15">01 — 04</span>
         </div>
 
-        <div className="mt-20 space-y-6 md:mt-28">
+        <div className="mt-6 space-y-6">
           {projects.map((project) => (
             <ProjectCard key={project.number} {...project} />
           ))}
         </div>
 
-        <div className="mt-16 flex items-center gap-4 font-mono text-[8px] uppercase tracking-[0.18em] text-white/20">
-          <span className="h-px w-10 bg-white/[0.10]" />
-          More experiments will appear here as they become ready to showcase.
+        <div className="mt-16 flex flex-col gap-3 border-t border-white/[0.07] pt-6 font-mono text-[8px] uppercase tracking-[0.18em] text-white/20 sm:flex-row sm:items-center sm:gap-4">
+          <span className="text-accent/60">Next</span>
+          <span>More projects will go here when they’re ready.</span>
         </div>
       </div>
     </main>
