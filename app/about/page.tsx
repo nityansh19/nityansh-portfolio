@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import AboutExperience from "@/components/AboutExperience";
+import AboutExperienceV2 from "@/components/AboutExperienceV2";
 
 export const metadata: Metadata = {
   title: "About — Nityansh Rupesh Bahadur",
-  description: "The story, working philosophy, journey, learning path, and technology behind Nityansh's work.",
+  description: "The story, working philosophy, journey, and technology behind Nityansh's work.",
 };
 
 export default function AboutPage() {
-  return <AboutExperience />;
+  return <AboutExperienceV2 />;
 }
