@@ -13,19 +13,24 @@ const skills = [
 
 const projects = [
   {
+    title: "Nivora",
+    meta: "Fintech · Product Engineering · Phase 0 Foundation",
+    text: "Personal finance application focused on daily expenses, income, savings, budgets, analytics, and goals. Current work is centered on the product foundation, interaction model, responsive UI, and the structure needed for the core data layer.",
+  },
+  {
     title: "CareerUpAI",
-    meta: "AI-Powered Career Platform · Major College Project · Active Development",
-    text: "Full-stack platform designed to help users create and analyze CVs/resumes, improve profiles, receive career guidance, and get personalized job recommendations. Covers frontend, backend, database functionality, and AI-driven workflows.",
+    meta: "AI · Full Stack · Currently Building",
+    text: "Career platform designed around CV and resume analysis, profile analysis, career guidance, personalized feedback, and a single workspace. Covers frontend, backend, database functionality, and AI-driven workflows.",
   },
   {
     title: "Nitra Chat",
-    meta: "Telegram-Inspired Web Application · Full Stack",
-    text: "Responsive messaging application focused on interactive communication, modern UI, backend functionality, deployment, and a clean usable chat experience.",
+    meta: "Real-time · Full Stack · Active Development",
+    text: "Telegram-inspired messaging application built with a focus on identity, messaging, discovery, persistence, and interaction. Next work includes stronger authorization, REST expansion, WebSockets, presence, media, offline states, and deployment.",
   },
   {
     title: "Personal AI Assistant",
-    meta: "Independent Project · Python · In Development",
-    text: "Personal software project exploring Python, automation, intelligent workflows, productivity assistance, and practical AI application development.",
+    meta: "AI · Automation · Currently Building",
+    text: "Personal project exploring Python, LLMs, automation, tool use, knowledge, developer workflows, and practical AI systems. The goal is to learn how useful assistant-style software works beyond a basic chat interface.",
   },
 ];
 
@@ -39,7 +44,7 @@ export default function CVPage() {
       <div className="mx-auto max-w-[980px]">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4 print:hidden">
           <Link href="/" className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 transition-colors hover:text-accent">← Back to portfolio</Link>
-          <button onClick={printCV} className="rounded-full border border-accent/25 bg-accent/[0.08] px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/65 transition-all hover:-translate-y-0.5 hover:bg-accent/[0.14] hover:text-white">Print / Save as PDF ↗</button>
+          <button type="button" onClick={printCV} className="rounded-full border border-accent/25 bg-accent/[0.08] px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/65 transition-all hover:-translate-y-0.5 hover:bg-accent/[0.14] hover:text-white">Print / Save as PDF ↗</button>
         </div>
 
         <article className="overflow-hidden rounded-[28px] border border-white/[0.10] bg-[#0a0b0f] shadow-[0_50px_150px_rgba(0,0,0,.38)] print:rounded-none print:border-0 print:bg-white print:text-black print:shadow-none">
@@ -50,7 +55,7 @@ export default function CVPage() {
                 <div>
                   <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent print:text-black/45">Curriculum Vitae</p>
                   <h1 className="mt-4 font-display text-4xl font-semibold tracking-[-0.05em] text-white sm:text-6xl print:text-black">Nityansh Rupesh Bahadur</h1>
-                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40 print:text-black/55">Full Stack Developer · Python Developer · AI Application Enthusiast</p>
+                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40 print:text-black/55">Full Stack Developer · Python &amp; AI Learner</p>
                 </div>
                 <div className="font-mono text-[9px] leading-6 text-white/35 sm:text-right print:text-black/55">
                   <div>Lucknow, Uttar Pradesh</div>
@@ -62,7 +67,7 @@ export default function CVPage() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-2 print:hidden">
-                <span className="rounded-full border border-accent/20 bg-accent/[0.06] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-accent">Open for jobs & opportunities</span>
+                <span className="rounded-full border border-accent/20 bg-accent/[0.06] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-accent">Open for jobs &amp; opportunities</span>
                 <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Internships</span>
                 <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Web / Full Stack</span>
                 <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Python</span>
@@ -77,7 +82,7 @@ export default function CVPage() {
               <section>
                 <SectionTitle>Professional Profile</SectionTitle>
                 <p className="text-[15px] leading-8 text-ink-dim print:text-black/75">
-                  Third-year BCA Computer Science student at Integral University with practical experience building and deploying full-stack web applications. Strong foundation in Python and modern JavaScript frameworks, actively expanding into AI-powered application development. Has delivered freelance web development, graphic design, and video editing work while contributing as a technical member of the college coding club.
+                  BCA Computer Science student at Integral University with practical experience building and deploying full-stack web applications. Strong foundation in modern JavaScript and Python, with current work moving deeper into backend systems and AI-powered application development. Also experienced with freelance web development, graphic design, and video editing, with a focus on understanding requirements and delivering the finished work.
                 </p>
               </section>
 
@@ -85,10 +90,10 @@ export default function CVPage() {
                 <SectionTitle>Experience</SectionTitle>
                 <div className="space-y-7">
                   <Experience title="Freelance Digital Services" role="Freelance Web Developer / Graphic Designer / Video Editor">
-                    Delivered web development, graphic design, and video editing projects based on client requirements. Handled client communication, requirement understanding, independent execution, deadlines, and timely delivery.
+                    Delivered web development, graphic design, and video editing projects based on client requirements. Handled client communication, requirement understanding, independent execution, deadlines, revisions, and delivery.
                   </Experience>
                   <Experience title="College Coding Club" role="Technical Member">
-                    Participated in coding activities, technical discussions, collaborative development efforts, programming practice, idea sharing, and problem-solving sessions with peers.
+                    Participated in coding activities, technical discussions, collaborative development, programming practice, idea sharing, and problem-solving sessions with peers.
                   </Experience>
                 </div>
               </section>
@@ -157,7 +162,7 @@ export default function CVPage() {
 
               <section className="mt-12">
                 <SectionTitle>Interests</SectionTitle>
-                <p className="text-sm leading-7 text-ink-dim print:text-black/75">Full-stack development, Python, AI applications, and software engineering.</p>
+                <p className="text-sm leading-7 text-ink-dim print:text-black/75">Full-stack development, Python, AI applications, backend systems, and developer tooling.</p>
               </section>
             </aside>
           </div>
