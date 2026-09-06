@@ -10,7 +10,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line py-10">
+    <footer className="border-t border-line py-10 print:hidden">
       <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
