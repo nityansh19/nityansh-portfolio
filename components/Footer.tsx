@@ -18,7 +18,7 @@ export default function Footer() {
               Nityansh<span className="text-accent">.</span>
             </Link>
             <p className="mt-2 max-w-sm text-xs leading-6 text-ink-faint">
-              Full-stack engineering, Python, and practical AI application development.
+              Full-stack development, Python, AI, and a lot of time spent making things work.
             </p>
           </div>
 
