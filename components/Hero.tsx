@@ -45,7 +45,7 @@ export default function Hero() {
               className="mb-7 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.25em] text-[#8590ff]"
             >
               <span className="h-px w-8 bg-[#8590ff]" />
-              Full Stack Developer · AI · Backend
+              Full Stack Developer · AI · Product Engineering
             </motion.p>
 
             <h1 className="font-display font-semibold tracking-[-0.065em]">
@@ -61,11 +61,18 @@ export default function Hero() {
               </span>
             </h1>
 
-            <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.58, duration: 0.75 }} className="mt-9 max-w-[650px] text-base leading-7 text-white/50 md:text-lg md:leading-8">
-              I build thoughtful digital products where clean interfaces, strong engineering, and intelligent systems meet. Currently exploring full-stack development, AI, and ideas worth turning into real products.
+            <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.58, duration: 0.75 }} className="mt-9 max-w-[680px] text-base leading-7 text-white/50 md:text-lg md:leading-8">
+              I design and engineer useful digital products where polished interfaces, solid backend thinking, and intelligent systems come together. I enjoy turning ambitious ideas into real, working software.
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75, duration: 0.7 }} className="mt-9 flex flex-wrap gap-3">
+            <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.7 }} className="mt-7 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[9px] uppercase tracking-[0.16em] text-white/30">
+              <span><span className="mr-2 text-[#7b88ff]">01</span>Full Stack</span>
+              <span><span className="mr-2 text-[#7b88ff]">02</span>AI Systems</span>
+              <span><span className="mr-2 text-[#7b88ff]">03</span>Backend</span>
+              <span><span className="mr-2 text-[#7b88ff]">04</span>Product UX</span>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.82, duration: 0.7 }} className="mt-9 flex flex-wrap gap-3">
               <Link href="/projects" className="group inline-flex items-center gap-8 rounded-full bg-white px-5 py-3.5 text-sm font-medium text-black transition-transform duration-300 hover:-translate-y-1">
                 Explore my work
                 <span className="transition-transform duration-300 group-hover:translate-x-1">↗</span>
@@ -103,7 +110,7 @@ export default function Hero() {
         </div>
 
         <footer className="flex items-center justify-between border-t border-white/[0.07] pt-5 font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
-          <span>Product-minded developer</span>
+          <span>Building useful software</span>
           <span className="hidden md:block">Scroll to explore</span>
           <span>01 / 05</span>
         </footer>
