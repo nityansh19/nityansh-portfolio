@@ -8,8 +8,9 @@ export default function ScrollProgress() {
 
   return (
     <motion.div
+      aria-hidden="true"
       style={{ scaleX }}
-      className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent to-accent-2 origin-left z-[600]"
+      className="pointer-events-none fixed left-0 right-0 top-0 z-[600] h-[2px] origin-left bg-gradient-to-r from-accent to-accent-2"
     />
   );
 }
