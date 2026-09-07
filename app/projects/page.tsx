@@ -12,9 +12,9 @@ const projects = [
     title: "Nivora",
     category: "FINTECH · PRODUCT ENGINEERING",
     description:
-      "A personal finance app for keeping track of everyday spending, income, savings, budgets, goals, and the numbers behind them.",
+      "A complete personal finance app for tracking expenses, income, accounts, savings, budgets, goals, analytics, recurring activity, and secure cloud-backed user data.",
     href: "/projects/nivora",
-    status: "Phase 0 · Foundation",
+    status: "v1.0 · Complete",
   },
   {
     number: "02",
@@ -66,16 +66,16 @@ export default function ProjectsPage() {
               <h1 className="font-display text-[clamp(3.5rem,9vw,8rem)] font-semibold leading-[0.84] tracking-[-0.07em]">
                 Things I’m
                 <br />
-                <span className="text-white/40">working on.</span>
+                <span className="text-white/40">building.</span>
               </h1>
               <p className="mt-8 max-w-2xl text-base leading-8 text-ink-dim sm:text-lg">
-                These are the projects I spend most of my time on. Some are still rough around the edges, which is kind of the point — I’m learning by actually building them.
+                A mix of finished products and active builds. I care most about making things that solve a real problem, feel polished, and keep pushing my engineering skills forward.
               </p>
             </div>
 
             <div className="shrink-0 border-l border-white/[0.10] pl-5 font-mono text-[8px] uppercase tracking-[0.16em] text-white/25 md:mb-1">
               <div>04 projects</div>
-              <div className="mt-2 text-accent/70">02 currently building</div>
+              <div className="mt-2 text-emerald-400/70">01 complete · 03 active</div>
             </div>
           </div>
         </header>
