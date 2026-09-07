@@ -3,19 +3,19 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Nivora — Nityansh Rupesh Bahadur",
-  description: "A deeper look at Nivora, Nityansh's personal finance application.",
+  description: "Nivora is a complete personal finance OS built by Nityansh for tracking, planning and understanding everyday money.",
 };
 
 const capabilities = [
-  ["01", "Expenses", "Record everyday spending and keep a simple history of where money goes."],
-  ["02", "Income", "Track incoming money alongside expenses so the bigger picture is easier to see."],
-  ["03", "Savings", "Keep savings separate, set goals, and make progress visible instead of treating saving as an afterthought."],
-  ["04", "Budgets", "Plan monthly spending and eventually compare planned amounts with what actually happened."],
-  ["05", "Analytics", "Turn transaction history into useful comparisons and patterns rather than filling the dashboard with charts."],
-  ["06", "Goals", "Give longer-term targets their own place so progress can be checked over time."],
+  ["01", "Transactions", "Track expenses and income with categories, notes, accounts, search, filtering, and recurring activity."],
+  ["02", "Accounts", "Manage cash, bank, UPI, cards, wallets and transfers from one financial workspace."],
+  ["03", "Savings", "Create savings goals, add entries, and make long-term progress visible."],
+  ["04", "Budgets", "Plan monthly and category spending, then compare targets with actual activity."],
+  ["05", "Analytics", "Understand cash flow, spending categories, trends and monthly financial patterns."],
+  ["06", "Cloud Sync", "Secure Supabase authentication and user-scoped cloud persistence keep each workspace recoverable across devices."],
 ];
 
-const stack = ["React", "Vite", "TypeScript", "Framer Motion", "Lucide React", "Recharts"];
+const stack = ["React", "Vite", "TypeScript", "Capacitor", "Supabase", "Framer Motion", "Lucide React", "Recharts"];
 
 export default function NivoraPage() {
   return (
@@ -24,9 +24,12 @@ export default function NivoraPage() {
         <Link href="/projects" className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 transition-colors hover:text-accent">← Back to projects</Link>
 
         <header className="mt-16 max-w-6xl">
-          <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-emerald-400/80">01 / Personal Finance OS · Phase 0</p>
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-emerald-400/80">01 / Personal Finance OS</p>
+            <span className="rounded-full border border-emerald-400/20 bg-emerald-400/[0.08] px-3 py-1 font-mono text-[8px] uppercase tracking-[0.16em] text-emerald-300">v1.0 · Complete</span>
+          </div>
           <h1 className="mt-5 font-display text-[clamp(4rem,11vw,10rem)] font-semibold leading-[0.82] tracking-[-0.08em]">Nivora<span className="text-emerald-400">.</span></h1>
-          <p className="mt-8 max-w-4xl text-lg leading-8 text-ink-dim sm:text-xl sm:leading-9">Nivora is the finance app I’m building for the everyday stuff: expenses, income, savings, budgets, goals, and eventually the patterns that help make those numbers easier to understand.</p>
+          <p className="mt-8 max-w-4xl text-lg leading-8 text-ink-dim sm:text-xl sm:leading-9">Nivora is a complete personal finance application I built to make everyday money easier to track and understand — expenses, income, accounts, budgets, savings, goals, analytics, recurring activity, authentication, cloud persistence, and Android support in one calm product.</p>
         </header>
 
         <div className="relative mt-20 min-h-[420px] overflow-hidden rounded-[28px] border border-white/[0.10] bg-[#080d0b] md:mt-28 md:min-h-[540px]">
@@ -39,19 +42,17 @@ export default function NivoraPage() {
           </div>
         </div>
 
-        <section className="mt-24 grid gap-16 md:grid-cols-[0.75fr_1.25fr] md:mt-32"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Why I started it</p><div className="space-y-6 text-lg leading-9 text-ink-dim"><p>I wanted something I would actually use every day. A finance app can have a huge feature list, but if adding an expense takes too much effort or the dashboard is difficult to read, the whole thing becomes pointless.</p><p>So I’m starting with the foundation and the everyday workflow first. The more advanced analytics can come once there is real data to work with.</p></div></section>
+        <section className="mt-24 grid gap-16 md:grid-cols-[0.75fr_1.25fr] md:mt-32"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Why I built it</p><div className="space-y-6 text-lg leading-9 text-ink-dim"><p>I wanted a finance app that felt simple enough to use every day but still had enough depth to become a real financial workspace. The challenge was not just storing numbers — it was making the experience clear, fast, responsive, and useful on both desktop and mobile.</p><p>Nivora became one of my largest product builds so far, covering frontend architecture, finance domain logic, persistence, authentication, cloud sync, PWA behavior, and Android delivery.</p></div></section>
 
-        <section className="mt-24 border-t border-line pt-16 md:mt-32 md:pt-24"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">What I’m building</p><div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">{capabilities.map(([n,t,d])=><div key={t} className="bg-bg p-7"><span className="font-mono text-[9px] text-emerald-400/60">{n}</span><h2 className="mt-5 font-display text-xl text-white/80">{t}</h2><p className="mt-3 text-sm leading-7 text-ink-dim">{d}</p></div>)}</div></section>
+        <section className="mt-24 border-t border-line pt-16 md:mt-32 md:pt-24"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">What shipped in v1</p><div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">{capabilities.map(([n,t,d])=><div key={t} className="bg-bg p-7"><span className="font-mono text-[9px] text-emerald-400/60">{n}</span><h2 className="mt-5 font-display text-xl text-white/80">{t}</h2><p className="mt-3 text-sm leading-7 text-ink-dim">{d}</p></div>)}</div></section>
 
-        <section className="mt-24 grid gap-16 border-t border-line pt-16 md:grid-cols-2 md:mt-32 md:pt-24"><div><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Product decisions</p><p className="mt-5 text-base leading-8 text-ink-dim">I’m deliberately keeping the first version calm. The interface uses a compact navigation system, clear financial hierarchy, restrained motion, useful empty states, and charts only where they answer a question.</p></div><div><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Responsive from the start</p><p className="mt-5 text-base leading-8 text-ink-dim">The layout is being designed for both desktop and mobile, with a desktop rail and a mobile bottom navigation so the main actions stay easy to reach.</p></div></section>
+        <section className="mt-24 grid gap-16 border-t border-line pt-16 md:grid-cols-2 md:mt-32 md:pt-24"><div><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Product decisions</p><p className="mt-5 text-base leading-8 text-ink-dim">I kept the interface calm and finance-first: compact navigation, strong hierarchy, restrained motion, real empty states, and charts only when they answer an actual question.</p></div><div><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Mobile + cloud</p><p className="mt-5 text-base leading-8 text-ink-dim">Nivora runs as a responsive web app and an Android app through Capacitor. Supabase handles authentication and user-scoped cloud persistence so a signed-in workspace can be restored instead of living only on one device.</p></div></section>
 
-        <section className="mt-24 border-t border-line pt-16 md:mt-32 md:pt-24"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Stack</p><div className="mt-6 flex flex-wrap gap-2">{stack.map((item)=><span key={item} className="rounded-full border border-white/[0.08] bg-white/[0.018] px-3 py-2 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">{item}</span>)}</div><p className="mt-7 max-w-3xl text-base leading-8 text-ink-dim">Recharts handles the data visualisation layer, Framer Motion handles interaction and transitions, Lucide keeps iconography consistent, and TypeScript keeps the application easier to reason about as it grows.</p></section>
+        <section className="mt-24 border-t border-line pt-16 md:mt-32 md:pt-24"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Stack</p><div className="mt-6 flex flex-wrap gap-2">{stack.map((item)=><span key={item} className="rounded-full border border-white/[0.08] bg-white/[0.018] px-3 py-2 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">{item}</span>)}</div><p className="mt-7 max-w-3xl text-base leading-8 text-ink-dim">React and TypeScript power the product layer, Supabase handles authentication and cloud persistence, Capacitor packages the Android experience, Recharts handles analytics, and Framer Motion keeps interactions polished without overwhelming the interface.</p></section>
 
-        <section className="mt-24 border-t border-line pt-16 md:mt-32 md:pt-24"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Roadmap</p><div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{[["01","Foundation","Shell, navigation, visual system"],["02","Core data","Transactions, savings, goals"],["03","Insights","Budgets, analytics, comparisons"],["04","Product","Sync, exports, PWA, future AI"]].map(([n,t,d])=><div key={n} className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6"><span className="font-mono text-[8px] text-emerald-400/60">{n}</span><h2 className="mt-4 font-display text-lg text-white/75">{t}</h2><p className="mt-2 text-sm leading-6 text-ink-dim">{d}</p></div>)}</div></section>
+        <section className="mt-24 border-t border-line pt-16 md:mt-32 md:pt-24"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Current status</p><h2 className="mt-5 max-w-4xl font-display text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">Nivora v1.0 is complete.</h2><p className="mt-6 max-w-3xl text-base leading-8 text-ink-dim">The current product scope is finished and usable. Future work would be expansion rather than unfinished core functionality — things like Play Store distribution, stronger native integrations, and deeper production-scale cloud architecture.</p></section>
 
-        <section className="mt-24 border-t border-line pt-16 md:mt-32 md:pt-24"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">Current status</p><h2 className="mt-5 max-w-4xl font-display text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">Phase 0 is about getting the base right.</h2><p className="mt-6 max-w-3xl text-base leading-8 text-ink-dim">Nivora is currently in its foundation phase. I’m treating this as a product I want to keep improving, not a one-off dashboard that gets abandoned after the first demo.</p></section>
-
-        <div className="mt-20 flex flex-wrap gap-4"><Link href="/projects" className="border border-white/[0.12] px-6 py-4 font-mono text-[9px] uppercase tracking-[0.16em] text-white/55 transition-colors hover:border-emerald-400/30 hover:text-white">All projects ↗</Link><Link href="/contact" className="border border-emerald-400/20 bg-emerald-400/[0.07] px-6 py-4 font-mono text-[9px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:bg-emerald-400/[0.12]">Start a conversation ↗</Link></div>
+        <div className="mt-20 flex flex-wrap gap-4"><a href="https://github.com/nityansh19/Nivora" target="_blank" rel="noreferrer" className="border border-emerald-400/20 bg-emerald-400/[0.07] px-6 py-4 font-mono text-[9px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:bg-emerald-400/[0.12]">View source ↗</a><Link href="/projects" className="border border-white/[0.12] px-6 py-4 font-mono text-[9px] uppercase tracking-[0.16em] text-white/55 transition-colors hover:border-emerald-400/30 hover:text-white">All projects ↗</Link></div>
       </article>
     </main>
   );
