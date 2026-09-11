@@ -3,34 +3,44 @@
 import Link from "next/link";
 
 const skills = [
-  ["Programming", "Python · JavaScript · TypeScript · C / C++"],
-  ["Frontend", "HTML5 · CSS3 · React.js · Tailwind CSS · Bootstrap · Responsive Design"],
-  ["Backend", "Node.js · Express.js · Flask · Django · REST APIs"],
-  ["Data", "MongoDB · MySQL · Firebase"],
-  ["Tools", "Git · GitHub · VS Code · npm · Docker · Vercel · Netlify"],
-  ["Additional", "API Integration · Debugging · Version Control · Deployment"],
+  ["Programming", "JavaScript · TypeScript · Python · C / C++"],
+  ["Frontend", "React.js · Next.js · HTML5 · CSS3 · Tailwind CSS · Responsive UI · Framer Motion"],
+  ["Backend & APIs", "Node.js · Express.js · REST APIs · MongoDB / Mongoose · Authentication · File & PDF processing"],
+  ["Data & Cloud", "Supabase · Firebase / Firestore · Cloudflare D1 / R2 · MySQL"],
+  ["Mobile & Product", "Capacitor · Expo · PWA · Cross-platform app architecture"],
+  ["Tools & Delivery", "Git · GitHub · Vite · npm · Vercel · Netlify · Cloudflare · Deployment · Debugging · Testing"],
 ];
 
 const projects = [
   {
     title: "Nivora",
-    meta: "Fintech · Product Engineering · Phase 0 Foundation",
-    text: "Personal finance application focused on daily expenses, income, savings, budgets, analytics, and goals. Current work is centered on the product foundation, interaction model, responsive UI, and the structure needed for the core data layer.",
+    meta: "Personal Finance OS · React · TypeScript · Supabase · Capacitor · v1.0 Complete",
+    href: "https://github.com/nityansh19/Nivora",
+    text: "Built a feature-complete personal finance product for web and Android with expense and income tracking, accounts, transfers, budgets, savings goals, analytics, recurring activity, notifications, authentication, cloud persistence, multi-device recovery, PWA support, and an AI-assisted finance experience.",
+  },
+  {
+    title: "Folio",
+    meta: "Knowledge Workspace · React · TypeScript · Tiptap · Cloudflare D1 / R2",
+    href: "https://github.com/nityansh19/Notes",
+    text: "Built a private knowledge-management workspace with rich-text and Markdown editing, autosave, version history, backlinks, a graph view, collections, tasks, journals, project associations, advanced search, import/export, authenticated owner-scoped APIs, and protected file storage.",
   },
   {
     title: "CareerUpAI",
-    meta: "AI · Full Stack · Currently Building",
-    text: "Career platform designed around CV and resume analysis, profile analysis, career guidance, personalized feedback, and a single workspace. Covers frontend, backend, database functionality, and AI-driven workflows.",
+    meta: "AI Career Platform · React · Express · MongoDB · Resume Intelligence",
+    href: "https://github.com/nityansh19/CareerUpAI",
+    text: "Developing a full-stack career platform with resume PDF parsing and analysis, Career Profile workflows, career intelligence matching, personalized feedback, protected application flows, REST APIs, MongoDB persistence, and a responsive product experience.",
+  },
+  {
+    title: "Barca Fan Companion",
+    meta: "Web + Mobile · React · TypeScript · Expo · Cloudflare · API Integration",
+    href: "https://github.com/nityansh19/Barca",
+    text: "Built a cross-platform football companion foundation with a responsive web app, Expo mobile client, shared API models, fixture and squad search, favourites, calendar export, local-time reminder previews, durable feed caching, provider-ready live-data adapters, and automated tests.",
   },
   {
     title: "Nitra Chat",
-    meta: "Real-time · Full Stack · Active Development",
-    text: "Telegram-inspired messaging application built with a focus on identity, messaging, discovery, persistence, and interaction. Next work includes stronger authorization, REST expansion, WebSockets, presence, media, offline states, and deployment.",
-  },
-  {
-    title: "Personal AI Assistant",
-    meta: "AI · Automation · Currently Building",
-    text: "Personal project exploring Python, LLMs, automation, tool use, knowledge, developer workflows, and practical AI systems. The goal is to learn how useful assistant-style software works beyond a basic chat interface.",
+    meta: "Communication Workspace · Next.js · TypeScript · Firebase / Firestore",
+    href: "https://github.com/nityansh19/Nitra-chat",
+    text: "Built a polished responsive communication workspace with conversation search, command palette, reactions, message actions, profile flows, mobile layouts, accessibility states, and a Firebase / Firestore architecture prepared for realtime backend migration.",
   },
 ];
 
@@ -55,7 +65,7 @@ export default function CVPage() {
                 <div>
                   <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent print:text-black/45">Curriculum Vitae</p>
                   <h1 className="mt-4 font-display text-4xl font-semibold tracking-[-0.05em] text-white sm:text-6xl print:text-black">Nityansh Rupesh Bahadur</h1>
-                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40 print:text-black/55">Full Stack Developer · Python &amp; AI Learner</p>
+                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40 print:text-black/55">Full Stack Developer · Web &amp; Product Engineer</p>
                 </div>
                 <div className="font-mono text-[9px] leading-6 text-white/35 sm:text-right print:text-black/55">
                   <div>Lucknow, Uttar Pradesh</div>
@@ -67,12 +77,12 @@ export default function CVPage() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-2 print:hidden">
-                <span className="rounded-full border border-accent/20 bg-accent/[0.06] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-accent">Open for jobs &amp; opportunities</span>
-                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Internships</span>
-                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Web / Full Stack</span>
-                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Python</span>
-                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Software Development</span>
-                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">AI</span>
+                <span className="rounded-full border border-accent/20 bg-accent/[0.06] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-accent">Available for freelance work</span>
+                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Responsive Websites</span>
+                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Full-Stack Apps</span>
+                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">UI Revamps</span>
+                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">API Integration</span>
+                <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">Deployment</span>
               </div>
             </div>
           </header>
@@ -82,18 +92,18 @@ export default function CVPage() {
               <section>
                 <SectionTitle>Professional Profile</SectionTitle>
                 <p className="text-[15px] leading-8 text-ink-dim print:text-black/75">
-                  BCA Computer Science student at Integral University with practical experience building and deploying full-stack web applications. Strong foundation in modern JavaScript and Python, with current work moving deeper into backend systems and AI-powered application development. Also experienced with freelance web development, graphic design, and video editing, with a focus on understanding requirements and delivering the finished work.
+                  Full-stack developer focused on building polished, responsive, production-minded web products from idea to deployment. Experienced across modern React interfaces, REST APIs, authentication, databases, cloud persistence, cross-platform app foundations, and deployment workflows. I work best on projects that need both clean user experience and solid application logic, and I am available for freelance websites, dashboards, full-stack applications, API integrations, UI revamps, bug fixing, and deployment work.
                 </p>
               </section>
 
               <section className="mt-12">
                 <SectionTitle>Experience</SectionTitle>
                 <div className="space-y-7">
-                  <Experience title="Freelance Digital Services" role="Freelance Web Developer / Graphic Designer / Video Editor">
-                    Delivered web development, graphic design, and video editing projects based on client requirements. Handled client communication, requirement understanding, independent execution, deadlines, revisions, and delivery.
+                  <Experience title="Freelance Digital Services" role="Web Developer / Designer / Video Editor">
+                    Worked from client requirements through execution, revisions, and final delivery across web development, visual design, and video-editing work. Comfortable translating loosely defined requests into clear deliverables and communicating progress independently.
                   </Experience>
-                  <Experience title="College Coding Club" role="Technical Member">
-                    Participated in coding activities, technical discussions, collaborative development, programming practice, idea sharing, and problem-solving sessions with peers.
+                  <Experience title="Independent Product Development" role="Full Stack Developer">
+                    Designed and built multiple end-to-end products covering finance, career intelligence, knowledge management, communication, mobile experiences, cloud persistence, API integration, testing, and deployment. Regularly work across UI, backend logic, data models, debugging, and release polish.
                   </Experience>
                 </div>
               </section>
@@ -103,7 +113,10 @@ export default function CVPage() {
                 <div className="space-y-7">
                   {projects.map((project) => (
                     <div key={project.title}>
-                      <h3 className="font-display text-2xl tracking-[-0.035em] text-white print:text-black">{project.title}</h3>
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                        <h3 className="font-display text-2xl tracking-[-0.035em] text-white print:text-black">{project.title}</h3>
+                        <a href={project.href} target="_blank" rel="noreferrer" className="font-mono text-[8px] uppercase tracking-[0.12em] text-white/25 transition-colors hover:text-accent print:text-black/45">GitHub ↗</a>
+                      </div>
                       <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.14em] text-accent/75 print:text-black/45">{project.meta}</p>
                       <p className="mt-3 text-sm leading-7 text-ink-dim print:text-black/75">{project.text}</p>
                     </div>
@@ -114,6 +127,13 @@ export default function CVPage() {
 
             <aside className="border-l border-white/[0.08] bg-white/[0.018] p-8 sm:p-12 print:mt-7 print:border-l-0 print:border-t print:border-black/15 print:bg-white print:p-0 print:pt-7">
               <section>
+                <SectionTitle>Services I Can Deliver</SectionTitle>
+                <div className="flex flex-wrap gap-2">
+                  {["Business websites", "Landing pages", "Portfolio sites", "Full-stack apps", "Dashboards", "Responsive redesigns", "API integrations", "Authentication", "Database integration", "Bug fixing", "Performance polish", "Deployment"].map((item) => <span key={item} className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] text-white/35 print:border-black/15 print:text-black/60">{item}</span>)}
+                </div>
+              </section>
+
+              <section className="mt-12">
                 <SectionTitle>Technical Skills</SectionTitle>
                 <div className="space-y-5">
                   {skills.map(([group, list]) => (
@@ -145,24 +165,19 @@ export default function CVPage() {
               </section>
 
               <section className="mt-12">
+                <SectionTitle>Additional Build</SectionTitle>
+                <div>
+                  <h3 className="font-display text-xl text-white print:text-black">ScoutOP Live Follower Tracker</h3>
+                  <p className="mt-2 text-sm leading-6 text-ink-dim print:text-black/75">Minimal Next.js live-count interface with a server endpoint for follower-count retrieval.</p>
+                  <a href="https://github.com/nityansh19/Tracker" target="_blank" rel="noreferrer" className="mt-2 inline-block font-mono text-[8px] uppercase tracking-[0.12em] text-accent/70 print:text-black/45">View repository ↗</a>
+                </div>
+              </section>
+
+              <section className="mt-12">
                 <SectionTitle>Professional Strengths</SectionTitle>
                 <div className="flex flex-wrap gap-2">
-                  {["Problem solving", "Fast learning", "Communication", "Client requirements", "Independent execution", "Teamwork", "Adaptability", "Creative approach"].map((item) => <span key={item} className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] text-white/35 print:border-black/15 print:text-black/60">{item}</span>)}
+                  {["Problem solving", "Fast learning", "Client communication", "Requirement understanding", "Independent execution", "Attention to UI", "Debugging", "Adaptability"].map((item) => <span key={item} className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[8px] text-white/35 print:border-black/15 print:text-black/60">{item}</span>)}
                 </div>
-              </section>
-
-              <section className="mt-12">
-                <SectionTitle>Languages</SectionTitle>
-                <div className="space-y-2 font-mono text-[9px] text-white/40 print:text-black/60">
-                  <div>English — Fluent / Professional</div>
-                  <div>Spanish — Knowledge</div>
-                  <div>Japanese — Knowledge</div>
-                </div>
-              </section>
-
-              <section className="mt-12">
-                <SectionTitle>Interests</SectionTitle>
-                <p className="text-sm leading-7 text-ink-dim print:text-black/75">Full-stack development, Python, AI applications, backend systems, and developer tooling.</p>
               </section>
             </aside>
           </div>
