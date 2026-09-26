@@ -1,13 +1,28 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 
-const prompts = ["Who is Nityansh?", "What is he building?", "What does he use?", "Nivora?"];
+const prompts = [
+  "Who is Nityansh?",
+  "What is he building?",
+  "What does he use?",
+  "CareerUpAI?",
+];
 
 export default function TerminalPreview() {
   return (
     <section className="relative overflow-hidden border-t border-line py-20 md:py-24">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(91,110,245,0.07),transparent_38%)]" />
-      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
+
+      <div className="relative mx-auto max-w-[1180px] px-6 sm:px-8">
+        <div className="mb-8">
+          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent/70">
+            04 / Ask the portfolio
+          </p>
+          <h2 className="mt-4 font-display text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">
+            Less browsing. More answers.
+          </h2>
+        </div>
+
         <Reveal>
           <Link
             href="/terminal"
@@ -19,13 +34,15 @@ export default function TerminalPreview() {
               <div>
                 <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.20em] text-accent/80">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-                  Want to know more?
+                  Interactive portfolio terminal
                 </div>
-                <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
-                  Ask the portfolio.
-                </h2>
+
+                <h3 className="mt-4 font-display text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
+                  Ask instead of searching.
+                </h3>
+
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-ink-dim">
-                  There is a little terminal here that can answer questions about my projects, stack, experience, and what I am learning.
+                  Open the terminal and ask about my projects, stack, current focus, or what I&apos;m building.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
@@ -41,7 +58,7 @@ export default function TerminalPreview() {
               </div>
 
               <div className="flex shrink-0 items-center gap-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 transition-colors group-hover:text-accent">
-                Try it
+                Try terminal
                 <span className="text-base transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
               </div>
             </div>
