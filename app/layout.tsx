@@ -7,6 +7,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import CustomCursor from "@/components/CustomCursor";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -75,13 +76,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={display.variable + " " + body.variable + " " + mono.variable}>
       <body className="font-body font-light bg-bg text-ink antialiased overflow-x-hidden">
         <Loader />
         <ScrollProgress />
         <CustomCursor />
         <Navigation />
-        {children}
+        <PageTransition>{children}</PageTransition>
         <Footer />
       </body>
     </html>
