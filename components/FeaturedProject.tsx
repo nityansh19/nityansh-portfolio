@@ -1,59 +1,234 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useRef } from "react";
-import { Reveal } from "./Reveal";
 
-export default function FeaturedProject() {
-  const ref = useRef<HTMLDivElement>(null);
-  const reducedMotion = useReducedMotion() ?? false;
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const smooth = useSpring(scrollYProgress, { stiffness: 65, damping: 24, mass: 0.35 });
-  const rotate = useTransform(smooth, [0, 0.5, 1], reducedMotion ? [0, 0, 0] : [-2.5, 0, 2.5]);
-  const y = useTransform(smooth, [0, 0.5, 1], reducedMotion ? [0, 0, 0] : [28, 0, -18]);
+type FlagshipProps = {
+  href: string;
+  number: string;
+  eyebrow: string;
+  title: React.ReactNode;
+  description: string;
+  accent: "indigo" | "violet";
+  tags: string[];
+};
+
+function FlagshipProject({
+  href,
+  number,
+  eyebrow,
+  title,
+  description,
+  accent,
+  tags,
+}: FlagshipProps) {
+  const reducedMotion = useReducedMotion();
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const mx = useMotionValue(0.5);
+  const my = useMotionValue(0.5);
+  const sx = useSpring(mx, { stiffness: 120, damping: 24, mass: 0.45 });
+  const sy = useSpring(my, { stiffness: 120, damping: 24, mass: 0.45 });
+
+  const rotateX = useTransform(sy, [0, 1], reducedMotion ? [0, 0] : [2.6, -2.6]);
+  const rotateY = useTransform(sx, [0, 1], reducedMotion ? [0, 0] : [-2.6, 2.6]);
+  const glowX = useTransform(sx, [0, 1], ["0%", "100%"]);
+  const glowY = useTransform(sy, [0, 1], ["0%", "100%"]);
+
+  const glow =
+    accent === "violet"
+      ? "rgba(142,105,255,0.16)"
+      : "rgba(91,110,245,0.16)";
 
   return (
-    <section ref={ref} className="relative overflow-hidden border-t border-line py-24 md:py-32">
-      <div className="pointer-events-none absolute inset-0">
-        <motion.div style={{ y }} className="absolute left-[72%] top-[18%] h-80 w-80 -translate-x-1/2 rounded-full bg-accent/[0.05] blur-[110px]" />
-        <motion.div style={{ rotate }} className="absolute right-[-8%] top-[20%] h-px w-[42%] bg-accent/25 shadow-[0_0_24px_rgba(91,110,245,.35)]" />
-      </div>
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 42, scale: 0.985 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.22 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      style={{ perspective: 1400 }}
+    >
+      <Link href={href} className="group block">
+        <motion.div
+          onMouseMove={(event) => {
+            const rect = event.currentTarget.getBoundingClientRect();
+            mx.set((event.clientX - rect.left) / rect.width);
+            my.set((event.clientY - rect.top) / rect.height);
+          }}
+          onMouseLeave={() => {
+            mx.set(0.5);
+            my.set(0.5);
+          }}
+          style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+          className="relative overflow-hidden rounded-[30px] border border-white/[0.10] bg-[#090a0e] transition-all duration-500 group-hover:border-white/[0.17] group-hover:shadow-[0_40px_130px_rgba(0,0,0,.44)]"
+        >
+          <motion.div
+            className="pointer-events-none absolute inset-0 opacity-70"
+            style={{
+              background: useTransform(
+                [glowX, glowY],
+                ([gx, gy]) =>
+                  `radial-gradient(520px circle at ${gx} ${gy}, ${glow}, transparent 68%)`
+              ),
+            }}
+          />
 
-      <div className="relative mx-auto max-w-[1180px] px-6 sm:px-8">
-        <div className="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent/70">02 / Selected Work</p>
-            <h2 className="mt-4 font-display text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">One project. More depth.</h2>
-          </div>
-          <Link href="/projects" className="hidden font-mono text-[9px] uppercase tracking-[0.18em] text-white/40 transition-colors hover:text-accent sm:block">View all work ↗</Link>
-        </div>
+          <div className="pointer-events-none absolute inset-0 opacity-[0.16] [background-image:linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] [background-size:54px_54px]" />
 
-        <Reveal scale>
-          <Link href="/projects/careerupai" className="group relative block overflow-hidden rounded-[24px] border border-white/[0.10] bg-[#08090d] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/25 hover:shadow-[0_35px_110px_rgba(0,0,0,.35)] sm:p-10">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_40%,rgba(91,110,245,0.12),transparent_35%)] opacity-80 transition-transform duration-1000 group-hover:scale-110" />
-            <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] [background-size:44px_44px]" />
-            <motion.div
-              className="pointer-events-none absolute -left-1/2 top-0 h-full w-1/3 skew-x-[-18deg] bg-gradient-to-r from-transparent via-white/[0.07] to-transparent"
-              animate={reducedMotion ? undefined : { x: [0, 900] }}
-              transition={{ duration: 5, repeat: Infinity, repeatDelay: 5, ease: "easeInOut" }}
-            />
-
-            <div className="relative z-10 grid gap-10 md:grid-cols-[1fr_0.8fr] md:items-end">
-              <div>
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">01 / AI · FULL STACK · 2026</span>
-                <h3 className="mt-5 font-display text-5xl font-semibold tracking-[-0.06em] sm:text-7xl">CareerUp<span className="text-accent">AI</span></h3>
-                <p className="mt-5 max-w-xl text-sm leading-7 text-ink-dim sm:text-base">A career platform designed to turn resume and profile data into clearer, more useful career decisions.</p>
+          <div className="relative z-10 grid min-h-[420px] gap-10 p-7 sm:p-10 md:grid-cols-[1.08fr_0.92fr] md:items-end md:p-12">
+            <div>
+              <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/28">
+                <span className="text-accent/80">{number}</span>
+                <span className="h-px w-7 bg-white/10" />
+                <span>{eyebrow}</span>
               </div>
-              <div className="md:text-right">
-                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/25">Explore case study</p>
-                <div className="mt-4 font-display text-3xl text-white/70 transition-colors group-hover:text-accent">Open project <span className="inline-block transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-1">↗</span></div>
+
+              <div className="mt-7 overflow-hidden">
+                <motion.h3
+                  initial={{ y: "105%" }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true, amount: 0.7 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="font-display text-[clamp(3.4rem,8vw,7rem)] font-semibold leading-[0.82] tracking-[-0.07em]"
+                >
+                  {title}
+                </motion.h3>
+              </div>
+
+              <p className="mt-6 max-w-xl text-sm leading-7 text-ink-dim sm:text-base">
+                {description}
+              </p>
+
+              <div className="mt-7 flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-white/[0.08] bg-white/[0.025] px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/35"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
-          </Link>
-        </Reveal>
 
-        <Link href="/projects" className="mt-6 block text-center font-mono text-[9px] uppercase tracking-[0.18em] text-white/40 transition-colors hover:text-accent sm:hidden">View all work ↗</Link>
+            <div className="relative flex min-h-[230px] items-center justify-center overflow-hidden rounded-[24px] border border-white/[0.08] bg-black/20">
+              <motion.div
+                animate={reducedMotion ? undefined : { rotate: 360 }}
+                transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+                className="absolute h-[190px] w-[190px] rounded-full border border-white/[0.07]"
+              />
+              <motion.div
+                animate={reducedMotion ? undefined : { rotate: -360 }}
+                transition={{ duration: 17, repeat: Infinity, ease: "linear" }}
+                className="absolute h-[128px] w-[128px] rounded-full border border-dashed border-white/[0.09]"
+              />
+              <div className="relative z-10 rounded-[20px] border border-white/[0.10] bg-[#0d0e13]/85 px-6 py-5 text-center shadow-[0_24px_70px_rgba(0,0,0,.4)] backdrop-blur-xl">
+                <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/25">
+                  Interactive case study
+                </p>
+                <p className="mt-3 font-display text-2xl font-semibold tracking-[-0.04em] text-white/80">
+                  Open project
+                </p>
+                <motion.span
+                  className="mt-3 inline-block text-xl text-accent"
+                  animate={reducedMotion ? undefined : { x: [0, 5, 0], y: [0, -4, 0] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  ↗
+                </motion.span>
+              </div>
+            </div>
+          </div>
+
+          <div className="pointer-events-none absolute bottom-0 left-0 h-px w-0 bg-accent transition-all duration-700 group-hover:w-full" />
+        </motion.div>
+      </Link>
+    </motion.div>
+  );
+}
+
+export default function FeaturedProject() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const reducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const headingY = useTransform(
+    scrollYProgress,
+    [0, 0.35, 1],
+    reducedMotion ? [0, 0, 0] : [42, 0, -24]
+  );
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden border-t border-line py-24 md:py-32"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(91,110,245,.07),transparent_30%)]" />
+
+      <div className="relative mx-auto max-w-[1180px] px-6 sm:px-8">
+        <motion.div
+          style={{ y: headingY }}
+          className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent/70">
+              02 / Flagship work
+            </p>
+            <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">
+              Two products that define where I&apos;m going.
+            </h2>
+          </div>
+
+          <Link
+            href="/projects"
+            className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/40 transition-colors hover:text-white"
+          >
+            View complete archive ↗
+          </Link>
+        </motion.div>
+
+        <div className="space-y-8 md:space-y-10">
+          <FlagshipProject
+            href="/projects/careerupai"
+            number="01"
+            eyebrow="AI · FULL STACK · PRODUCT"
+            title={
+              <>
+                CareerUp<span className="text-accent">AI</span>
+              </>
+            }
+            description="An AI-powered career platform built around resumes, profiles, guidance and smarter career decisions — combining product thinking, full-stack engineering and applied AI."
+            accent="indigo"
+            tags={["AI workflows", "Career intelligence", "Full stack", "Product UX"]}
+          />
+
+          <FlagshipProject
+            href="/projects/personal-ai"
+            number="02"
+            eyebrow="AI · AUTOMATION · WORKSPACE"
+            title={
+              <>
+                Personal AI
+                <span className="text-white/28"> / JARVIS</span>
+              </>
+            }
+            description="A personal workspace AI exploring context, automation, developer workflows and useful tools in one place — my long-term experiment in building a system that can actually assist."
+            accent="violet"
+            tags={["Context", "Automation", "Developer tools", "AI systems"]}
+          />
+        </div>
       </div>
     </section>
   );
