@@ -14,14 +14,14 @@ import ProjectStack from "@/components/ProjectStack";
 
 const expertise = [
   { label: "FULL STACK", tools: ["React", "Next.js", "Node", "MongoDB", "APIs"] },
-  { label: "AI SYSTEMS", tools: ["Python", "LLM workflows", "Automation", "CareerUpAI", "Personal AI"] },
+  { label: "AI SYSTEMS", tools: ["Python", "LLM workflows", "Automation", "CareerUpAI"] },
   { label: "BACKEND", tools: ["Authentication", "REST APIs", "Databases", "Architecture", "Deployment"] },
   { label: "PRODUCT UX", tools: ["Interaction", "Motion", "Responsive UI", "Product thinking"] },
 ];
 
 
 const systemBranches = {
-  AI: ["CareerUpAI", "Personal AI", "Python", "Automation"],
+  AI: ["CareerUpAI", "Python", "Automation", "AI workflows"],
   BACKEND: ["Node", "MongoDB", "APIs", "Authentication"],
   PRODUCT: ["UX", "Motion", "Architecture", "Deployment"],
   DESIGN: ["Interaction", "Hierarchy", "Responsive UI", "Systems thinking"],
