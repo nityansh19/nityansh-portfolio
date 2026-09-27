@@ -10,6 +10,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useMemo, useRef, useState } from "react";
+import ProjectStack from "@/components/ProjectStack";
 
 const expertise = [
   { label: "FULL STACK", tools: ["React", "Next.js", "Node", "MongoDB", "APIs"] },
@@ -18,12 +19,6 @@ const expertise = [
   { label: "PRODUCT UX", tools: ["Interaction", "Motion", "Responsive UI", "Product thinking"] },
 ];
 
-const metrics = [
-  ["Resume Score", "87"],
-  ["Skill Match", "92%"],
-  ["Career Direction", "AI Engineer"],
-  ["Profile Strength", "Improving"],
-];
 
 const systemBranches = {
   AI: ["CareerUpAI", "Personal AI", "Python", "Automation"],
@@ -32,28 +27,6 @@ const systemBranches = {
   DESIGN: ["Interaction", "Hierarchy", "Responsive UI", "Systems thinking"],
 };
 
-const selectedWork = [
-  {
-    number: "03",
-    title: "Nivora",
-    subtitle: "Personal Finance OS",
-    description: "A complete finance product for expenses, income, savings, budgets, goals, analytics, authentication and cloud persistence.",
-    status: "v1.0 · Complete",
-    stack: ["React", "TypeScript", "Supabase", "Capacitor"],
-    href: "/projects/nivora",
-    tone: "emerald",
-  },
-  {
-    number: "04",
-    title: "Nitra Chat",
-    subtitle: "Real-time communication",
-    description: "A messaging product focused on identity, conversations, persistence, backend logic and the real-time layer that comes next.",
-    status: "Active development",
-    stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose"],
-    href: "/projects/nitra-chat",
-    tone: "indigo",
-  },
-];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-accent/75">{children}</p>;
@@ -338,226 +311,7 @@ export default function LandingExperience() {
         </motion.div>
       </section>
 
-      <section className="relative overflow-hidden border-t border-line py-24 md:py-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(91,110,245,.08),transparent_34%)]" />
-        <div className="relative mx-auto max-w-[1180px] px-6 sm:px-8">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <SectionLabel>02 / Currently building</SectionLabel>
-              <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.8rem,6vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.065em]">
-                Two systems.<br /><span className="text-white/34">Two different worlds.</span>
-              </h2>
-            </div>
-            <p className="max-w-sm text-sm leading-7 text-ink-dim">
-              The goal is not to collect projects. It is to build products that force me to think deeper about engineering, AI and product decisions.
-            </p>
-          </div>
-
-          <div className="mt-14 space-y-6">
-            <motion.article
-              data-cursor-label="EXPLORE"
-              initial={{ opacity: 0, y: 34 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              className="group relative overflow-hidden border border-white/[0.10] bg-[#090a0e]"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(91,110,245,.12),transparent_32%)]" />
-              <div className="relative grid gap-10 p-7 sm:p-10 lg:grid-cols-[0.85fr_1.15fr] lg:p-12">
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.18em] text-accent/80">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-                      Flagship / AI career platform
-                    </div>
-                    <h3 className="mt-6 font-display text-[clamp(3.7rem,8vw,7.2rem)] font-semibold leading-[0.82] tracking-[-0.075em]">
-                      CareerUp<span className="text-accent">AI</span>
-                    </h3>
-                    <p className="mt-6 max-w-xl text-sm leading-7 text-ink-dim sm:text-base">
-                      An AI-powered career platform designed to help users understand their profile, improve their resume, explore career paths and make smarter career decisions.
-                    </p>
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <Link
-                      href="/projects/careerupai"
-                      className="rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition-transform hover:-translate-y-1"
-                    >
-                      Explore case study ↗
-                    </Link>
-                    <Link
-                      href="/projects"
-                      className="rounded-full border border-white/[0.12] px-5 py-3 text-sm text-white/70 transition-colors hover:border-accent/40 hover:text-white"
-                    >
-                      View project
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="relative overflow-hidden border border-white/[0.09] bg-[#0d0f16]/92 p-5 shadow-[0_30px_90px_rgba(0,0,0,.38)] sm:p-6">
-                  <div className="flex items-center justify-between border-b border-white/[0.07] pb-4">
-                    <div>
-                      <p className="font-mono text-[7px] uppercase tracking-[0.18em] text-white/25">CareerUpAI / Profile intelligence</p>
-                      <p className="mt-2 text-sm text-white/62">Candidate intelligence dashboard</p>
-                    </div>
-                    <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-accent">Live model</span>
-                  </div>
-
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                    {metrics.map(([label, value], index) => (
-                      <motion.div
-                        key={label}
-                        initial={{ opacity: 0, y: 8 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.08 * index }}
-                        className="border border-white/[0.07] bg-white/[0.018] p-4"
-                      >
-                        <p className="font-mono text-[7px] uppercase tracking-[0.14em] text-white/23">{label}</p>
-                        <p
-                          className={
-                            "mt-3 font-display tracking-[-0.04em] " +
-                            (index < 2 ? "text-3xl text-white/88" : "text-xl text-white/78")
-                          }
-                        >
-                          {value}
-                        </p>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <div className="mt-3 border border-white/[0.07] bg-white/[0.018] p-4">
-                    <div className="flex items-center justify-between font-mono text-[7px] uppercase tracking-[0.14em] text-white/22">
-                      <span>Profile readiness</span>
-                      <span className="text-accent">87 / 100</span>
-                    </div>
-                    <div className="mt-3 h-1.5 overflow-hidden bg-white/[0.05]">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "87%" }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                        className="h-full bg-accent"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.article>
-
-            <motion.article
-              data-cursor-label="OPEN"
-              initial={{ opacity: 0, y: 34 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              className="relative overflow-hidden border border-white/[0.09] bg-[#08090d]"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_23%_50%,rgba(132,88,255,.10),transparent_35%)]" />
-              <div className="relative grid gap-8 p-7 sm:p-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:p-12">
-                <div className="relative min-h-[300px] overflow-hidden border border-violet-400/[0.12] bg-[#0a0810] p-5">
-                  <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] [background-size:42px_42px]" />
-                  <div className="relative flex items-center justify-between font-mono text-[7px] uppercase tracking-[0.16em] text-white/22">
-                    <span>JARVIS / Runtime</span>
-                    <span className="text-violet-300/70">system online</span>
-                  </div>
-
-                  <div className="relative mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                    {["CONTEXT", "AUTOMATION", "TOOLS", "WORKFLOWS", "MEMORY"].map((node, index) => (
-                      <motion.div
-                        key={node}
-                        animate={reducedMotion ? undefined : { y: [0, index % 2 === 0 ? -4 : 4, 0] }}
-                        transition={{ duration: 4 + index * 0.3, repeat: Infinity, ease: "easeInOut" }}
-                        className={"border border-white/[0.07] bg-white/[0.02] p-4 " + (index === 4 ? "sm:col-start-2" : "")}
-                      >
-                        <span className="font-mono text-[7px] text-violet-300/55">0{index + 1}</span>
-                        <p className="mt-4 text-sm tracking-[0.08em] text-white/68">{node}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <div className="relative mt-4 border-l border-violet-400/30 pl-4 font-mono text-[8px] leading-6 text-white/32">
-                    context → tools → action → feedback → memory
-                  </div>
-                </div>
-
-                <div>
-                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-violet-300/70">Personal AI / JARVIS</p>
-                  <h3 className="mt-5 font-display text-[clamp(3rem,6vw,5.6rem)] font-semibold leading-[0.9] tracking-[-0.065em]">
-                    A workspace that can actually assist.
-                  </h3>
-                  <p className="mt-6 max-w-xl text-sm leading-7 text-ink-dim sm:text-base">
-                    A personal AI workspace exploring context, automation, developer tools and useful workflows in one system.
-                  </p>
-                  <Link
-                    href="/projects/personal-ai"
-                    className="mt-8 inline-flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/46 transition-colors hover:text-violet-300"
-                  >
-                    Explore JARVIS <span>↗</span>
-                  </Link>
-                </div>
-              </div>
-            </motion.article>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden border-t border-line py-24 md:py-32">
-        <div className="relative mx-auto max-w-[1180px] px-6 sm:px-8">
-          <div className="flex items-end justify-between gap-8">
-            <div>
-              <SectionLabel>03 / Selected work</SectionLabel>
-              <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.06em] sm:text-6xl">
-                Built beyond the flagship.
-              </h2>
-            </div>
-            <Link href="/projects" className="hidden font-mono text-[8px] uppercase tracking-[0.16em] text-white/32 transition-colors hover:text-white md:block">
-              All projects ↗
-            </Link>
-          </div>
-
-          <div className="mt-12 divide-y divide-white/[0.08] border-y border-white/[0.08]">
-            {selectedWork.map((project) => (
-              <Link key={project.title} data-cursor-label="VIEW" href={project.href} className="group block">
-                <motion.article
-                  whileHover={reducedMotion ? undefined : { x: 6 }}
-                  className="grid gap-8 py-10 transition-colors hover:bg-white/[0.012] md:grid-cols-[90px_1fr_0.7fr] md:items-center md:px-2"
-                >
-                  <div className="font-mono text-[9px] text-white/22">{project.number}</div>
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <h3 className="font-display text-4xl font-semibold tracking-[-0.055em] text-white/86 sm:text-5xl">{project.title}</h3>
-                      <span
-                        className={
-                          "border px-2.5 py-1 font-mono text-[7px] uppercase tracking-[0.13em] " +
-                          (project.tone === "emerald"
-                            ? "border-emerald-400/20 text-emerald-300/70"
-                            : "border-accent/20 text-accent/80")
-                        }
-                      >
-                        {project.status}
-                      </span>
-                    </div>
-                    <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.15em] text-white/24">{project.subtitle}</p>
-                    <p className="mt-4 max-w-2xl text-sm leading-7 text-ink-dim">{project.description}</p>
-                  </div>
-
-                  <div className="md:text-right">
-                    <div className="flex flex-wrap gap-2 md:justify-end">
-                      {project.stack.map((item) => (
-                        <span key={item} className="border border-white/[0.07] px-2.5 py-1.5 font-mono text-[7px] uppercase tracking-[0.10em] text-white/28">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="mt-5 inline-flex items-center gap-2 font-mono text-[8px] uppercase tracking-[0.14em] text-white/30 transition-colors group-hover:text-accent">
-                      Case study <span className="transition-transform group-hover:translate-x-1">↗</span>
-                    </div>
-                  </div>
-                </motion.article>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProjectStack />
 
       <section className="relative overflow-hidden border-t border-line py-24 md:py-32">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_55%,rgba(91,110,245,.07),transparent_42%)]" />
