@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "A deeper look at Nityansh's experimental personal AI and automation project.",
 };
 
-const systems = [
+const systems: [string, string, string][] = [
   ["01", "Context", "Keep track of the current goal instead of treating every message as an isolated request."],
   ["02", "Tools", "Explore how an assistant can work with APIs, files, and developer utilities."],
   ["03", "Automation", "Use Python and workflows to remove repetitive work from the developer workspace."],
