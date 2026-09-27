@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "A deeper look at CareerUpAI, an AI-powered career platform Nityansh is building.",
 };
 
-const features = [
+const features: [string, string, string][] = [
   ["01", "CV analysis", "Inspect a resume and surface useful strengths, gaps, and areas that need work."],
   ["02", "Resume workspace", "Create, edit, and improve career documents inside one workflow."],
   ["03", "Profile analysis", "Connect skills, experience, and profile information instead of treating them separately."],
