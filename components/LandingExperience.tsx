@@ -107,7 +107,7 @@ export default function LandingExperience() {
 
         <motion.div
           style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
-          className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1380px] flex-col px-6 pb-7 pt-7 sm:px-8 lg:px-14"
+          className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1380px] flex-col px-5 pb-24 pt-6 sm:px-8 sm:pb-28 lg:px-14 lg:pb-7 lg:pt-7"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -124,13 +124,13 @@ export default function LandingExperience() {
             </div>
           </motion.div>
 
-          <div className="grid flex-1 items-center gap-10 py-8 lg:grid-cols-[minmax(0,1.38fr)_360px] lg:gap-16">
+          <div className="grid flex-1 items-start gap-8 py-8 sm:py-10 lg:grid-cols-[minmax(0,1.38fr)_360px] lg:items-center lg:gap-16">
             <motion.div style={{ x: textX, y: textY }}>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08, duration: 0.55 }}
-                className="mb-6 flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.22em] text-accent/90"
+                className="mb-5 flex max-w-[330px] items-start gap-3 font-mono text-[8px] uppercase leading-4 tracking-[0.18em] text-accent/90 sm:mb-6 sm:max-w-none sm:items-center sm:text-[9px] sm:tracking-[0.22em]"
               >
                 <span className="h-px w-8 bg-accent" />
                 Full-stack developer building intelligent products
@@ -142,7 +142,7 @@ export default function LandingExperience() {
                     initial={{ y: "108%" }}
                     animate={{ y: 0 }}
                     transition={{ delay: 0.14, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                    className="block text-[clamp(4.2rem,11.5vw,10rem)] leading-[0.79] text-[#f2f3f7]"
+                    className="block text-[clamp(3.35rem,17vw,10rem)] leading-[0.82] text-[#f2f3f7] sm:text-[clamp(4.2rem,11.5vw,10rem)]"
                   >
                     NITYANSH
                   </motion.span>
@@ -153,7 +153,7 @@ export default function LandingExperience() {
                     initial={{ y: "110%" }}
                     animate={{ y: 0 }}
                     transition={{ delay: 0.22, duration: 0.88, ease: [0.16, 1, 0.3, 1] }}
-                    className="block text-[clamp(1.2rem,2.5vw,2.3rem)] leading-none text-white/26"
+                    className="block text-[clamp(1.05rem,5vw,2.3rem)] leading-none tracking-[-0.05em] text-white/40 sm:text-white/26"
                   >
                     RUPESH BAHADUR
                   </motion.span>
@@ -170,7 +170,7 @@ export default function LandingExperience() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.48, duration: 0.6 }}
-                className="mt-7 max-w-[650px] text-[15px] leading-7 text-white/48 md:text-base"
+                className="mt-6 max-w-[650px] text-[14px] leading-6 text-white/58 sm:mt-7 sm:text-[15px] sm:leading-7 md:text-base"
               >
                 I build polished digital products, backend systems and intelligent experiences — combining engineering depth with product thinking and interaction design.
               </motion.p>
@@ -179,7 +179,7 @@ export default function LandingExperience() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.56, duration: 0.6 }}
-                className="mt-7 grid max-w-[760px] gap-3 lg:grid-cols-[1fr_1.05fr]"
+                className="mt-6 grid max-w-[760px] gap-3 sm:mt-7 md:grid-cols-[1fr_1.05fr]"
               >
                 <div className="grid grid-cols-2 gap-2">
                   {expertise.map((item, index) => (
@@ -228,12 +228,12 @@ export default function LandingExperience() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.66, duration: 0.55 }}
-                className="mt-8 flex flex-wrap gap-3"
+                className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:flex sm:flex-wrap"
               >
                 <Link
                   data-cursor-label="VIEW"
                   href="/projects"
-                  className="group inline-flex items-center gap-8 rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition-transform duration-300 hover:-translate-y-1"
+                  className="group inline-flex items-center justify-between gap-3 rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition-transform duration-300 hover:-translate-y-1 sm:gap-8"
                 >
                   Explore work
                   <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
@@ -241,7 +241,7 @@ export default function LandingExperience() {
                 <Link
                   data-cursor-label="HELLO"
                   href="/contact"
-                  className="group inline-flex items-center gap-8 rounded-full border border-white/[0.13] bg-white/[0.03] px-5 py-3 text-sm font-medium text-white/82 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.06]"
+                  className="group inline-flex items-center justify-between gap-3 rounded-full border border-white/[0.13] bg-white/[0.03] px-5 py-3 text-sm font-medium text-white/82 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.06] sm:gap-8"
                 >
                   Contact me
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -254,7 +254,7 @@ export default function LandingExperience() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
               style={{ x: portraitX, y: portraitY, rotateX, rotateY, transformPerspective: 1200 }}
-              className="mx-auto w-full max-w-[360px] lg:mx-0 lg:justify-self-end"
+              className="mx-auto hidden w-full max-w-[360px] lg:mx-0 lg:block lg:justify-self-end"
             >
               <div className="relative">
                 <div className="absolute -left-8 top-10 hidden h-px w-20 bg-gradient-to-r from-transparent to-accent/60 md:block" />
@@ -297,7 +297,7 @@ export default function LandingExperience() {
             </motion.div>
           </div>
 
-          <div className="flex items-center justify-between border-t border-white/[0.07] pt-5 font-mono text-[8px] uppercase tracking-[0.18em] text-white/22">
+          <div className="hidden items-center justify-between border-t border-white/[0.07] pt-5 font-mono text-[8px] uppercase tracking-[0.18em] text-white/22 lg:flex">
             <span>Full stack → AI systems</span>
             <motion.span
               animate={reducedMotion ? undefined : { y: [0, 4, 0] }}
