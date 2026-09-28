@@ -18,14 +18,16 @@ export default function Navigation() {
   const reducedMotion = useReducedMotion();
 
   return (
-    <motion.nav
-      initial={reducedMotion ? false : { opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed bottom-[calc(0.7rem+env(safe-area-inset-bottom))] left-1/2 z-[9999] w-[calc(100%-1rem)] max-w-[650px] -translate-x-1/2 print:hidden sm:bottom-[calc(1.25rem+env(safe-area-inset-bottom))] sm:w-auto"
+    <nav
+      className="fixed bottom-[calc(0.7rem+env(safe-area-inset-bottom))] left-2 right-2 z-[9999] mx-auto max-w-[650px] print:hidden sm:bottom-[calc(1.25rem+env(safe-area-inset-bottom))] sm:left-1/2 sm:right-auto sm:w-max sm:-translate-x-1/2"
       aria-label="Main navigation"
     >
-      <div className="relative rounded-[22px] border border-white/[0.11] bg-[#090a0d]/88 p-1.5 shadow-[0_20px_70px_rgba(0,0,0,0.52)] backdrop-blur-2xl sm:rounded-full sm:p-2">
+      <motion.div
+        initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        className="relative w-full rounded-[22px] border border-white/[0.11] bg-[#090a0d]/92 p-1.5 shadow-[0_20px_70px_rgba(0,0,0,0.52)] backdrop-blur-2xl sm:rounded-full sm:p-2"
+      >
         <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
         <div className="relative grid grid-cols-6 gap-1 sm:flex sm:items-center">
@@ -68,7 +70,7 @@ export default function Navigation() {
             );
           })}
         </div>
-      </div>
-    </motion.nav>
+      </motion.div>
+    </nav>
   );
 }
