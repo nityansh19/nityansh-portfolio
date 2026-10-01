@@ -40,6 +40,8 @@ export default function ProjectCaseStudy({
   secondaryHref = "/contact",
   secondaryLabel = "Start a conversation",
 }: ProjectCaseStudyProps) {
+  const secondaryExternal = secondaryHref.startsWith("http");
+
   return (
     <main className="min-h-screen bg-bg px-5 pb-28 pt-28 sm:px-8 md:pt-36">
       <article className="mx-auto max-w-[1180px]">
@@ -139,7 +141,12 @@ export default function ProjectCaseStudy({
           <Link href="/projects" className="rounded-full border border-white/[0.11] px-5 py-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/50 transition-colors hover:border-white/25 hover:text-white">
             All projects
           </Link>
-          <Link href={secondaryHref} className="rounded-full border border-accent/25 bg-accent/[0.08] px-5 py-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/75 transition-colors hover:bg-accent/[0.14]">
+          <Link
+            href={secondaryHref}
+            target={secondaryExternal ? "_blank" : undefined}
+            rel={secondaryExternal ? "noreferrer" : undefined}
+            className="rounded-full border border-accent/25 bg-accent/[0.08] px-5 py-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/75 transition-colors hover:bg-accent/[0.14]"
+          >
             {secondaryLabel} ↗
           </Link>
         </div>
