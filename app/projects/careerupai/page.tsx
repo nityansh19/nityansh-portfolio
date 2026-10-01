@@ -21,7 +21,7 @@ export default function CareerUpAIPage() {
   return (
     <ProjectCaseStudy
       eyebrow="Flagship 01 / AI career platform"
-      status="Currently building"
+      status="Live beta · Nearly complete"
       title={<>CareerUp<span className="text-accent">AI</span></>}
       intro="A career platform built to turn scattered resume, profile, and career information into clearer next actions."
       metrics={[
@@ -36,7 +36,9 @@ export default function CareerUpAIPage() {
       approachTitle="Bring the workflow into one product."
       approachCopy="CareerUpAI connects resume analysis, profile information, feedback, and guidance so the experience feels like one system instead of several disconnected tools."
       statusTitle="Building the product, not just the demo."
-      statusCopy="I’m using CareerUpAI to learn how to scope a larger idea, connect frontend and backend systems, integrate AI into an actual workflow, and improve the product without letting the interface become crowded."
+      statusCopy="CareerUpAI is now deployed as a working product while I continue polishing flows, UX and the AI-assisted career experience."
+      secondaryHref="https://career-up-ai-delta.vercel.app/"
+      secondaryLabel="View live CareerUpAI"
       preview={
         <div className="relative min-h-[340px] overflow-hidden p-5 sm:min-h-[420px] sm:p-8 md:p-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_38%,rgba(91,110,245,.14),transparent_38%)]" />
