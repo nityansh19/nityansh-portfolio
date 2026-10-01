@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import CareerUpLivePreview from "@/components/CareerUpLivePreview";
 
 const projects = [
   {
@@ -10,8 +11,9 @@ const projects = [
     name: "CareerUpAI",
     eyebrow: "AI CAREER PLATFORM",
     description: "An AI-powered career platform designed to help users understand their profile, improve their resume, explore career paths and make smarter career decisions.",
-    status: "Currently building",
+    status: "Live beta · Nearly complete",
     href: "/projects/careerupai",
+    liveUrl: "https://career-up-ai-delta.vercel.app/",
     stack: ["React", "Node.js", "MongoDB", "AI"],
     visual: "career",
   },
@@ -23,6 +25,7 @@ const projects = [
     description: "A full-stack messaging product focused on identity, conversations, persistence, backend logic and the real-time layer that makes communication feel instant.",
     status: "Active development",
     href: "/projects/nitra-chat",
+    liveUrl: undefined,
     stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose"],
     visual: "chat",
   },
@@ -34,6 +37,7 @@ const projects = [
     description: "A complete finance product for expenses, income, savings, budgets, goals, analytics, authentication and cloud persistence.",
     status: "v1.0 · Complete",
     href: "/projects/nivora",
+    liveUrl: undefined,
     stack: ["React", "TypeScript", "Supabase", "Capacitor"],
     visual: "finance",
   },
@@ -41,30 +45,7 @@ const projects = [
 
 function ProjectVisual({ type }: { type: string }) {
   if (type === "career") {
-    return (
-      <div className="relative h-full min-h-[290px] overflow-hidden border border-white/[0.08] bg-[#0c0e15] p-5 sm:min-h-[360px] sm:p-6">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_28%,rgba(91,110,245,.14),transparent_32%)]" />
-        <div className="relative flex items-center justify-between border-b border-white/[0.07] pb-4">
-          <div>
-            <p className="font-mono text-[7px] uppercase tracking-[0.17em] text-white/24">Career profile</p>
-            <p className="mt-2 text-sm text-white/62">Candidate intelligence</p>
-          </div>
-          <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_16px_rgba(91,110,245,.85)]" />
-        </div>
-        <div className="relative mt-5 grid grid-cols-2 gap-3">
-          {[["Resume Score","87"],["Skill Match","92%"],["Direction","AI Engineer"],["Profile","Improving"]].map(([label,value])=>(
-            <div key={label} className="border border-white/[0.07] bg-white/[0.02] p-4">
-              <p className="font-mono text-[7px] uppercase tracking-[0.13em] text-white/22">{label}</p>
-              <p className="mt-3 font-display text-xl tracking-[-0.04em] text-white/80 sm:text-2xl">{value}</p>
-            </div>
-          ))}
-        </div>
-        <div className="relative mt-3 border border-white/[0.07] bg-white/[0.02] p-4">
-          <div className="flex items-center justify-between font-mono text-[7px] uppercase tracking-[0.13em] text-white/22"><span>Readiness</span><span className="text-accent">87 / 100</span></div>
-          <div className="mt-3 h-1.5 bg-white/[0.06]"><motion.div initial={{width:0}} whileInView={{width:"87%"}} viewport={{once:true}} transition={{duration:1,ease:[.16,1,.3,1]}} className="h-full bg-accent"/></div>
-        </div>
-      </div>
-    );
+    return <CareerUpLivePreview />;
   }
 
   if (type === "chat") {
@@ -158,9 +139,23 @@ export default function ProjectStack() {
                     <p className="mt-6 max-w-xl text-sm leading-7 text-white/43 sm:text-base">{project.description}</p>
                     <div className="mt-7 flex flex-wrap gap-2">{project.stack.map(item=><span key={item} className="border border-white/[0.07] px-3 py-1.5 font-mono text-[7px] uppercase tracking-[0.12em] text-white/28">{item}</span>)}</div>
                   </div>
-                  <Link href={project.href} className="group mt-9 inline-flex w-fit items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition-transform duration-300 hover:-translate-y-1">
-                    Explore project <span className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-                  </Link>
+                  <div className="mt-9 flex flex-wrap gap-3">
+                    <Link href={project.href} className="group inline-flex w-fit items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition-transform duration-300 hover:-translate-y-1">
+                      Explore project <span className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+                    </Link>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-cursor-label="LIVE"
+                        className="group inline-flex w-fit items-center gap-3 rounded-full border border-accent/30 bg-accent/[0.08] px-5 py-3 text-sm font-medium text-white/82 transition-all duration-300 hover:-translate-y-1 hover:border-accent/55 hover:bg-accent/[0.14]"
+                      >
+                        View live site
+                        <span className="text-accent transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
                 <ProjectVisual type={project.visual}/>
               </div>
