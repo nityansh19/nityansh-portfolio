@@ -36,7 +36,7 @@ export default function KineticHeroTitle() {
       >
         <motion.div
           aria-hidden
-          style={{ x: depthX, y: depthY, transform: "translateZ(-36px)" }}
+          style={{ x: depthX, y: depthY, z: -36 }}
           className="pointer-events-none absolute -left-1 top-1 select-none whitespace-nowrap font-display text-[clamp(3rem,15vw,7.6rem)] font-extrabold leading-[0.82] tracking-[-0.075em] text-accent/[0.12] blur-[1px] sm:text-[clamp(3.8rem,9vw,7.6rem)]"
         >
           {NAME}
@@ -85,7 +85,7 @@ export default function KineticHeroTitle() {
           aria-hidden
           animate={reducedMotion ? undefined : { y: [0, -7, 0], rotateZ: [-1.5, 1.2, -1.5] }}
           transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-          style={{ transform: "translateZ(50px)" }}
+          style={{ z: 50 }}
           className="pointer-events-none absolute -right-7 top-[-18px] hidden border border-white/[0.08] bg-black/30 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.18em] text-white/35 backdrop-blur-md md:block"
         >
           engineer / builder
