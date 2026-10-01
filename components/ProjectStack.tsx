@@ -34,7 +34,7 @@ export default function ProjectStack() {
         <div className="absolute left-[-14%] top-[46%] h-[420px] w-[420px] rounded-full bg-[#8b6ef5]/[0.025] blur-[120px]" />
       </div>
 
-      <div className="relative mx-auto max-w-[1180px] px-6 pb-24 pt-24 sm:px-8 md:pb-32 md:pt-32">
+      <div className="relative mx-auto max-w-[1240px] px-5 pb-24 pt-24 sm:px-8 md:pb-32 md:pt-32">
         <div className="grid gap-8 md:grid-cols-[1fr_.72fr] md:items-end">
           <div>
             <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-accent/75">
@@ -75,8 +75,8 @@ export default function ProjectStack() {
         >
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,.025),transparent_38%)]" />
 
-          <div className="relative grid gap-10 p-5 sm:p-8 lg:grid-cols-[.78fr_1.22fr] lg:items-center lg:gap-10 lg:p-10 xl:p-12">
-            <div className="min-w-0">
+          <div className="relative grid gap-8 p-5 sm:p-8 xl:grid-cols-[minmax(0,.92fr)_minmax(0,1.08fr)] xl:items-center xl:gap-9 xl:p-10 2xl:gap-12 2xl:p-12">
+            <div className="min-w-0 xl:pr-1">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/24">
                   Flagship / 01
@@ -86,21 +86,21 @@ export default function ProjectStack() {
                 </span>
               </div>
 
-              <p className="mt-9 font-mono text-[8px] uppercase tracking-[0.18em] text-accent/72">
+              <p className="mt-8 font-mono text-[8px] uppercase tracking-[0.18em] text-accent/72">
                 AI career platform
               </p>
 
-              <h3 className="mt-4 max-w-full font-display text-[clamp(3.15rem,10vw,5.3rem)] font-semibold leading-[0.84] tracking-[-0.072em] sm:text-[clamp(3.8rem,6vw,5.4rem)]">
+              <h3 className="mt-4 max-w-full whitespace-nowrap font-display text-[clamp(2.85rem,10vw,4.55rem)] font-semibold leading-[0.86] tracking-[-0.068em] sm:text-[clamp(3.35rem,5.3vw,4.65rem)] xl:text-[clamp(3.75rem,4.1vw,4.75rem)]">
                 CareerUp<span className="text-accent">AI</span>
               </h3>
 
-              <p className="mt-6 max-w-xl text-sm leading-7 text-white/48 sm:text-base">
+              <p className="mt-6 max-w-[520px] text-sm leading-7 text-white/48 sm:text-base">
                 An AI-powered career platform designed to help people understand
                 their profile, improve their resume and make clearer decisions
                 about what to work on next.
               </p>
 
-              <div className="mt-7 flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-wrap gap-2">
                 {stack.map((item) => (
                   <span
                     key={item}
@@ -111,7 +111,7 @@ export default function ProjectStack() {
                 ))}
               </div>
 
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link
                   href="/projects/careerupai"
                   data-cursor-label="VIEW"
@@ -138,7 +138,7 @@ export default function ProjectStack() {
               </div>
             </div>
 
-            <div className="min-w-0">
+            <div className="min-w-0 xl:justify-self-end xl:w-full xl:max-w-[650px]">
               <CareerUpLivePreview />
             </div>
           </div>
