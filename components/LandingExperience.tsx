@@ -38,6 +38,7 @@ export default function LandingExperience() {
   const reducedMotion = useReducedMotion() ?? false;
   const [activeExpertise, setActiveExpertise] = useState(0);
   const [activeBranch, setActiveBranch] = useState<keyof typeof systemBranches>("AI");
+  const [profileSrc, setProfileSrc] = useState("/profile.jpg");
 
   const px = useMotionValue(0);
   const py = useMotionValue(0);
@@ -84,7 +85,7 @@ export default function LandingExperience() {
           px.set(0);
           py.set(0);
         }}
-        className="relative overflow-hidden border-b border-white/[0.07] lg:min-h-[88svh]"
+        className="relative overflow-hidden border-b border-white/[0.07] lg:min-h-[94svh]"
       >
         <motion.div
           style={{ x: gridX, y: gridY }}
@@ -128,7 +129,7 @@ export default function LandingExperience() {
 
         <motion.div
           style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
-          className="relative z-10 mx-auto flex max-w-[1180px] flex-col px-5 pb-20 pt-5 sm:px-8 sm:pb-24 lg:min-h-[88svh] lg:px-12 lg:pb-6 lg:pt-6"
+          className="relative z-10 mx-auto flex w-full max-w-[1380px] flex-col px-5 pb-24 pt-5 sm:px-8 sm:pb-28 lg:min-h-[94svh] lg:px-10 lg:pb-12 lg:pt-6 xl:px-14"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -145,8 +146,8 @@ export default function LandingExperience() {
             </div>
           </motion.div>
 
-          <div className="grid flex-1 items-start gap-6 py-6 sm:py-8 lg:grid-cols-[minmax(0,1.45fr)_300px] lg:items-center lg:gap-12">
-            <motion.div style={{ x: textX, y: textY }}>
+          <div className="grid flex-1 items-start gap-8 py-7 sm:py-9 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-center lg:gap-8 xl:grid-cols-[minmax(0,1fr)_310px] xl:gap-14">
+            <motion.div style={{ x: textX, y: textY }} className="min-w-0 lg:pr-2 xl:pr-4">
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -221,7 +222,7 @@ export default function LandingExperience() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.66, duration: 0.55 }}
-                className="mt-6 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap"
+                className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
               >
                 <Link
                   data-cursor-label="VIEW"
@@ -247,7 +248,7 @@ export default function LandingExperience() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
               style={{ x: portraitX, y: portraitY, rotateX, rotateY, transformPerspective: 1200 }}
-              className="mx-auto hidden w-full max-w-[300px] lg:mx-0 lg:block lg:justify-self-end"
+              className="relative z-10 mx-auto hidden w-full max-w-[255px] lg:mx-0 lg:block lg:justify-self-end xl:max-w-[310px]"
             >
               <div className="relative">
                 <div className="absolute -left-8 top-10 hidden h-px w-20 bg-gradient-to-r from-transparent to-accent/60 md:block" />
@@ -256,13 +257,19 @@ export default function LandingExperience() {
                 <div className="relative overflow-hidden border border-white/[0.11] bg-[#0b0c10]/72 p-2 shadow-[0_35px_100px_rgba(0,0,0,.48)] backdrop-blur-xl">
                   <div className="relative aspect-[4/5] overflow-hidden bg-[#111216]">
                     <motion.img
-                      src="/profile.jpg"
+                      src={profileSrc}
                       alt="Portrait of Nityansh Rupesh Bahadur"
-                      className="absolute inset-0 h-full w-full object-cover grayscale-[8%]"
+                      onError={() => {
+                        if (profileSrc !== "https://avatars.githubusercontent.com/u/257083668?v=4") {
+                          setProfileSrc("https://avatars.githubusercontent.com/u/257083668?v=4");
+                        }
+                      }}
+                      className="absolute inset-0 h-full w-full object-cover object-[50%_18%] grayscale-[8%]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-transparent to-white/[0.02]" />
-                    <div className="absolute left-4 top-4 border border-white/10 bg-black/28 px-3 py-1.5 font-mono text-[7px] uppercase tracking-[0.15em] text-white/52 backdrop-blur-md">
-                      Lucknow / India
+                    <div className="absolute left-4 top-4 z-20 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/55 px-3 py-1.5 font-mono text-[7px] uppercase tracking-[0.14em] text-white/68 shadow-[0_8px_24px_rgba(0,0,0,.25)] backdrop-blur-md">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(91,110,245,.8)]" />
+                      Lucknow, India
                     </div>
                     <div className="absolute bottom-5 left-5 right-5">
                       <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/34">Currently building</p>
@@ -283,9 +290,6 @@ export default function LandingExperience() {
                   <p className="mt-1 text-sm text-white/72">AI × Product × Backend</p>
                 </motion.div>
 
-                <div className="absolute -right-3 top-16 hidden border-l border-accent/40 pl-3 font-mono text-[7px] uppercase tracking-[0.14em] text-white/28 md:block">
-                  building<br />since 2025
-                </div>
               </div>
             </motion.div>
           </div>
