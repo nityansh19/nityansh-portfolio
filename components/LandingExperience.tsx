@@ -38,7 +38,7 @@ export default function LandingExperience() {
   const reducedMotion = useReducedMotion() ?? false;
   const [activeExpertise, setActiveExpertise] = useState(0);
   const [activeBranch, setActiveBranch] = useState<keyof typeof systemBranches>("AI");
-  const [profileSrc, setProfileSrc] = useState("/profile.jpg");
+  const [profileSrc, setProfileSrc] = useState("https://avatars.githubusercontent.com/u/257083668?v=4");
 
   const px = useMotionValue(0);
   const py = useMotionValue(0);
@@ -259,11 +259,6 @@ export default function LandingExperience() {
                     <motion.img
                       src={profileSrc}
                       alt="Portrait of Nityansh Rupesh Bahadur"
-                      onError={() => {
-                        if (profileSrc !== "https://avatars.githubusercontent.com/u/257083668?v=4") {
-                          setProfileSrc("https://avatars.githubusercontent.com/u/257083668?v=4");
-                        }
-                      }}
                       className="absolute inset-0 h-full w-full object-cover object-[50%_18%] grayscale-[8%]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-transparent to-white/[0.02]" />
