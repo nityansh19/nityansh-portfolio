@@ -28,6 +28,37 @@ const systemBranches = {
   DESIGN: ["Interaction", "Hierarchy", "Responsive UI", "Systems thinking"],
 };
 
+const systemBranchMeta = {
+  AI: {
+    index: "01",
+    label: "Intelligence layer",
+    description:
+      "I use AI where it improves a real workflow — analysis, guidance and automation — instead of adding it as decoration.",
+    signal: "Applied intelligence",
+  },
+  BACKEND: {
+    index: "02",
+    label: "System layer",
+    description:
+      "APIs, authentication and data models turn polished interfaces into products that can actually behave, persist and scale.",
+    signal: "Reliable systems",
+  },
+  PRODUCT: {
+    index: "03",
+    label: "Product layer",
+    description:
+      "I think about the complete journey: what belongs in the product, what should stay simple and how every decision connects.",
+    signal: "Useful outcomes",
+  },
+  DESIGN: {
+    index: "04",
+    label: "Experience layer",
+    description:
+      "Hierarchy, motion and responsive interaction make complex systems feel understandable instead of overwhelming.",
+    signal: "Clear interaction",
+  },
+} as const;
+
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-accent/75">{children}</p>;
@@ -306,86 +337,243 @@ export default function LandingExperience() {
       <ProjectStack />
 
       <section className="relative overflow-hidden border-t border-line py-24 md:py-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_55%,rgba(91,110,245,.07),transparent_42%)]" />
-        <div className="relative mx-auto max-w-[1180px] px-6 sm:px-8">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/2 top-[42%] h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.045] blur-[140px]" />
+          <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,.45)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.45)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:radial-gradient(circle_at_center,black,transparent_75%)]" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1240px] px-6 sm:px-8">
+          <div className="grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
             <div>
-              <SectionLabel>04 / System view</SectionLabel>
-              <h2 className="mt-5 max-w-4xl font-display text-[clamp(3rem,7vw,6.5rem)] font-semibold leading-[0.9] tracking-[-0.07em]">
-                How I build.<br /><span className="text-white/32">Not just what I use.</span>
+              <SectionLabel>04 / Build system</SectionLabel>
+              <h2 className="mt-5 max-w-4xl font-display text-[clamp(3rem,7vw,6.4rem)] font-semibold leading-[0.9] tracking-[-0.07em]">
+                Ideas become systems.
+                <br />
+                <span className="text-white/28">Systems become products.</span>
               </h2>
             </div>
-            <p className="max-w-sm text-sm leading-7 text-ink-dim">
-              Explore the layers. Each branch connects skills to the kind of product work I care about.
+            <p className="max-w-md text-sm leading-7 text-ink-dim lg:pb-2">
+              Explore the layers behind the work. Hover or tap a branch to see
+              how engineering, AI, product thinking and design connect.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="relative min-h-[470px] overflow-hidden border border-white/[0.09] bg-[#08090d] p-6 sm:p-10">
-              <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] [background-size:46px_46px]" />
-              <div className="relative flex h-full min-h-[390px] items-center justify-center">
-                <div className="absolute left-1/2 top-1/2 h-px w-[70%] -translate-x-1/2 bg-gradient-to-r from-transparent via-white/12 to-transparent" />
-                <div className="absolute left-1/2 top-1/2 h-[68%] w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-white/12 to-transparent" />
+          <div className="mt-14 overflow-hidden border border-white/[0.10] bg-[#08090d]/80 shadow-[0_40px_140px_rgba(0,0,0,.35)] backdrop-blur-sm md:mt-16">
+            <div className="grid lg:grid-cols-[1.15fr_.85fr]">
+              <div className="relative min-h-[520px] overflow-hidden border-b border-white/[0.08] p-5 sm:min-h-[610px] sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(91,110,245,.12),transparent_34%),radial-gradient(circle_at_18%_20%,rgba(139,110,245,.05),transparent_24%)]" />
+                <div className="pointer-events-none absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] [background-size:48px_48px]" />
 
-                {([
-                  ["AI", "left-1/2 top-[8%] -translate-x-1/2"],
-                  ["DESIGN", "left-[5%] top-1/2 -translate-y-1/2"],
-                  ["BACKEND", "right-[5%] top-1/2 -translate-y-1/2"],
-                  ["PRODUCT", "bottom-[8%] left-1/2 -translate-x-1/2"],
-                ] as const).map(([branch, position]) => (
-                  <motion.button
-                    key={branch}
-                    whileHover={reducedMotion ? undefined : { scale: 1.04 }}
-                    onMouseEnter={() => setActiveBranch(branch)}
-                    onFocus={() => setActiveBranch(branch)}
-                    onClick={() => setActiveBranch(branch)}
-                    className={
-                      "absolute " +
-                      position +
-                      " border px-4 py-2 font-mono text-[8px] uppercase tracking-[0.16em] transition-colors " +
-                      (activeBranch === branch
-                        ? "border-accent/45 bg-accent/[0.08] text-white"
-                        : "border-white/[0.09] text-white/35")
-                    }
+                <div className="relative flex items-center justify-between border-b border-white/[0.07] pb-4">
+                  <div className="flex items-center gap-2 font-mono text-[7px] uppercase tracking-[0.18em] text-white/26 sm:text-[8px]">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent shadow-[0_0_12px_rgba(91,110,245,.9)]" />
+                    Interactive architecture map
+                  </div>
+                  <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-white/18">
+                    04 connected layers
+                  </span>
+                </div>
+
+                <div className="relative mx-auto mt-6 h-[410px] max-w-[680px] sm:mt-8 sm:h-[470px]">
+                  <div className="pointer-events-none absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.055] sm:h-[340px] sm:w-[340px]" />
+                  <motion.div
+                    aria-hidden
+                    animate={reducedMotion ? undefined : { rotate: 360 }}
+                    transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
+                    className="pointer-events-none absolute left-1/2 top-1/2 h-[205px] w-[205px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-accent/[0.16] sm:h-[270px] sm:w-[270px]"
                   >
-                    {branch}
-                  </motion.button>
-                ))}
+                    <span className="absolute left-1/2 top-[-4px] h-2 w-2 -translate-x-1/2 rounded-full bg-accent shadow-[0_0_18px_rgba(91,110,245,.9)]" />
+                  </motion.div>
 
-                <div className="relative z-10 border border-white/[0.11] bg-[#0d0e13] px-6 py-5 text-center shadow-[0_22px_70px_rgba(0,0,0,.45)]">
-                  <p className="font-mono text-[7px] uppercase tracking-[0.18em] text-white/22">Core</p>
-                  <p className="mt-2 font-display text-2xl font-semibold tracking-[-0.04em]">NITYANSH</p>
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 680 470"
+                    className="pointer-events-none absolute inset-0 hidden h-full w-full sm:block"
+                    preserveAspectRatio="none"
+                  >
+                    {[
+                      ["AI", "M340 235 L340 55"],
+                      ["DESIGN", "M340 235 L90 235"],
+                      ["BACKEND", "M340 235 L590 235"],
+                      ["PRODUCT", "M340 235 L340 415"],
+                    ].map(([branch, d]) => (
+                      <motion.path
+                        key={branch}
+                        d={d}
+                        fill="none"
+                        stroke={activeBranch === branch ? "rgba(91,110,245,.68)" : "rgba(255,255,255,.08)"}
+                        strokeWidth={activeBranch === branch ? 1.4 : 1}
+                        strokeDasharray={activeBranch === branch ? "6 8" : "2 10"}
+                        initial={false}
+                        animate={{
+                          opacity: activeBranch === branch ? 1 : 0.7,
+                          pathLength: activeBranch === branch ? 1 : 0.72,
+                        }}
+                        transition={{ duration: 0.5 }}
+                      />
+                    ))}
+                  </svg>
+
+                  {([
+                    ["AI", "left-1/2 top-[3%] -translate-x-1/2"],
+                    ["DESIGN", "left-[1%] top-1/2 -translate-y-1/2"],
+                    ["BACKEND", "right-[1%] top-1/2 -translate-y-1/2"],
+                    ["PRODUCT", "bottom-[3%] left-1/2 -translate-x-1/2"],
+                  ] as const).map(([branch, position]) => {
+                    const active = activeBranch === branch;
+                    const meta = systemBranchMeta[branch];
+                    return (
+                      <motion.button
+                        key={branch}
+                        type="button"
+                        whileHover={reducedMotion ? undefined : { scale: 1.045, y: -2 }}
+                        onMouseEnter={() => setActiveBranch(branch)}
+                        onFocus={() => setActiveBranch(branch)}
+                        onClick={() => setActiveBranch(branch)}
+                        className={
+                          "absolute z-20 " +
+                          position +
+                          " min-w-[96px] border px-3 py-2.5 text-left transition-all duration-300 sm:min-w-[126px] sm:px-4 sm:py-3 " +
+                          (active
+                            ? "border-accent/55 bg-accent/[0.11] shadow-[0_0_35px_rgba(91,110,245,.14)]"
+                            : "border-white/[0.09] bg-[#0a0b10]/85 hover:border-white/20 hover:bg-white/[0.035]")
+                        }
+                      >
+                        <div className="flex items-center justify-between gap-4">
+                          <span className={"font-mono text-[7px] tracking-[0.16em] " + (active ? "text-accent" : "text-white/22")}>
+                            {meta.index}
+                          </span>
+                          <span className={"h-1.5 w-1.5 rounded-full " + (active ? "bg-accent shadow-[0_0_12px_rgba(91,110,245,.9)]" : "bg-white/12")} />
+                        </div>
+                        <p className={"mt-2 font-mono text-[8px] uppercase tracking-[0.14em] sm:text-[9px] " + (active ? "text-white" : "text-white/42")}>
+                          {branch}
+                        </p>
+                      </motion.button>
+                    );
+                  })}
+
+                  <motion.div
+                    animate={reducedMotion ? undefined : { y: [0, -5, 0] }}
+                    transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute left-1/2 top-1/2 z-10 w-[150px] -translate-x-1/2 -translate-y-1/2 sm:w-[190px]"
+                  >
+                    <div className="absolute -inset-8 rounded-full bg-accent/[0.08] blur-3xl" />
+                    <div className="relative overflow-hidden border border-white/[0.13] bg-[#0d0f16]/94 px-5 py-6 text-center shadow-[0_26px_90px_rgba(0,0,0,.55)] backdrop-blur-xl sm:px-7 sm:py-8">
+                      <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
+                      <p className="font-mono text-[7px] uppercase tracking-[0.22em] text-accent/65">
+                        Core system
+                      </p>
+                      <p className="mt-3 font-display text-xl font-semibold tracking-[-0.045em] text-white sm:text-2xl">
+                        NITYANSH
+                      </p>
+                      <p className="mt-2 font-mono text-[6px] uppercase tracking-[0.15em] text-white/22 sm:text-[7px]">
+                        Build · Connect · Refine
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+
+                <div className="relative flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.07] pt-4 font-mono text-[7px] uppercase tracking-[0.16em] text-white/20">
+                  <span>Hover / tap a node</span>
+                  <span className="text-accent/60">Active: {activeBranch}</span>
                 </div>
               </div>
-            </div>
 
-            <motion.div layout className="border border-white/[0.09] bg-white/[0.018] p-7 sm:p-8">
-              <div className="flex items-center justify-between font-mono text-[8px] uppercase tracking-[0.16em] text-white/22">
-                <span>Active branch</span>
-                <span className="text-accent">{activeBranch}</span>
-              </div>
+              <motion.div
+                layout
+                className="relative min-h-[520px] overflow-hidden bg-[linear-gradient(145deg,rgba(255,255,255,.025),transparent_42%)] p-6 sm:min-h-[610px] sm:p-8 lg:p-10"
+              >
+                <motion.div
+                  key={"ghost-" + activeBranch}
+                  initial={reducedMotion ? false : { opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="pointer-events-none absolute -right-3 top-14 select-none font-display text-[clamp(5rem,9vw,8.5rem)] font-semibold leading-none tracking-[-0.08em] text-white/[0.025]"
+                >
+                  {activeBranch}
+                </motion.div>
 
-              <h3 className="mt-8 font-display text-4xl font-semibold tracking-[-0.055em]">{activeBranch}</h3>
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="flex items-center justify-between border-b border-white/[0.07] pb-4 font-mono text-[7px] uppercase tracking-[0.18em] text-white/24 sm:text-[8px]">
+                    <span>Active layer / {systemBranchMeta[activeBranch].index}</span>
+                    <span className="flex items-center gap-2 text-accent">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(91,110,245,.9)]" />
+                      Connected
+                    </span>
+                  </div>
 
-              <div className="mt-8 space-y-2">
-                {branchItems.map((item, index) => (
                   <motion.div
-                    key={item}
-                    initial={{ opacity: 0, x: 10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="flex items-center justify-between border-b border-white/[0.07] py-3"
+                    key={"heading-" + activeBranch}
+                    initial={reducedMotion ? false : { opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="mt-8"
                   >
-                    <span className="text-sm text-white/65">{item}</span>
-                    <span className="font-mono text-[7px] text-white/18">0{index + 1}</span>
+                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-accent/72">
+                      {systemBranchMeta[activeBranch].label}
+                    </p>
+                    <h3 className="mt-3 font-display text-[clamp(3.1rem,5vw,4.8rem)] font-semibold leading-none tracking-[-0.065em]">
+                      {activeBranch}
+                    </h3>
+                    <p className="mt-5 max-w-lg text-sm leading-7 text-white/44">
+                      {systemBranchMeta[activeBranch].description}
+                    </p>
                   </motion.div>
-                ))}
-              </div>
 
-              <p className="mt-8 text-sm leading-7 text-ink-dim">
-                The portfolio is strongest when these layers overlap — product choices influencing architecture, backend constraints shaping UX, and AI becoming part of a real workflow rather than a decoration.
-              </p>
-            </motion.div>
+                  <div className="mt-8 grid gap-2">
+                    {branchItems.map((item, index) => (
+                      <motion.div
+                        key={activeBranch + item}
+                        initial={reducedMotion ? false : { opacity: 0, x: 14 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.055, duration: 0.35 }}
+                        className="group relative overflow-hidden border border-white/[0.07] bg-white/[0.015] px-4 py-3.5 transition-colors hover:border-accent/25 hover:bg-accent/[0.035]"
+                      >
+                        <motion.div
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          transition={{ delay: 0.08 + index * 0.06, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                          className="absolute bottom-0 left-0 h-px w-full origin-left bg-gradient-to-r from-accent/55 via-accent/12 to-transparent"
+                        />
+                        <div className="relative flex items-center justify-between gap-4">
+                          <div className="flex items-center gap-3">
+                            <span className="font-mono text-[7px] text-accent/55">
+                              0{index + 1}
+                            </span>
+                            <span className="text-sm text-white/66">
+                              {item}
+                            </span>
+                          </div>
+                          <span className="font-mono text-[7px] uppercase tracking-[0.12em] text-white/16 transition-colors group-hover:text-accent/60">
+                            linked
+                          </span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div className="mt-auto pt-8">
+                    <div className="border border-white/[0.08] bg-black/20 p-5">
+                      <div className="flex items-center justify-between font-mono text-[7px] uppercase tracking-[0.16em] text-white/22">
+                        <span>System signal</span>
+                        <span className="text-accent">{systemBranchMeta[activeBranch].signal}</span>
+                      </div>
+                      <div className="mt-4 h-1 overflow-hidden bg-white/[0.05]">
+                        <motion.div
+                          key={"signal-" + activeBranch}
+                          initial={{ width: "18%" }}
+                          animate={{ width: "86%" }}
+                          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                          className="h-full bg-gradient-to-r from-accent via-[#8b6ef5] to-transparent"
+                        />
+                      </div>
+                      <p className="mt-4 text-xs leading-6 text-white/30">
+                        The strongest work happens when this layer overlaps with the other three instead of operating by itself.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
