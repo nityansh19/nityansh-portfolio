@@ -71,7 +71,7 @@ export default function ProjectStack() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.18 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mt-14 overflow-hidden border border-white/[0.10] bg-[#090a0e] shadow-[0_45px_130px_rgba(0,0,0,.42)] md:mt-18"
+          className="relative mt-14 overflow-hidden border border-white/[0.10] bg-[#090a0e] shadow-[0_45px_130px_rgba(0,0,0,.42)] md:mt-16"
         >
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,.025),transparent_38%)]" />
 
@@ -179,13 +179,13 @@ export default function ProjectStack() {
                 More work
               </p>
               <h3 className="mt-4 max-w-3xl font-display text-[clamp(2.3rem,5vw,4.6rem)] font-semibold leading-[0.94] tracking-[-0.055em]">
-                There&apos;s more behind
+                The rest of my work
                 <br className="hidden sm:block" />
-                <span className="text-white/28"> the flagship.</span>
+                <span className="text-white/28"> lives here.</span>
               </h3>
               <p className="mt-5 max-w-xl text-sm leading-7 text-white/38">
-                Explore the rest of my projects, experiments and product work
-                without crowding the homepage.
+                Explore the other products, experiments and systems I&apos;ve
+                designed and built.
               </p>
             </div>
 
@@ -194,7 +194,7 @@ export default function ProjectStack() {
               data-cursor-label="MORE"
               className="group inline-flex w-fit items-center gap-8 rounded-full border border-white/[0.12] bg-white/[0.025] px-6 py-3.5 text-sm font-medium text-white/82 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-accent/[0.06]"
             >
-              View more of my work
+              Explore all work
               <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
