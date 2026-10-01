@@ -18,7 +18,7 @@ export default function KineticHeroTitle() {
 
   return (
     <div
-      className="relative w-fit max-w-full [perspective:1200px]"
+      className="relative w-full max-w-[920px] [perspective:1400px]"
       onMouseMove={(event) => {
         if (reducedMotion) return;
         const rect = event.currentTarget.getBoundingClientRect();
@@ -37,7 +37,7 @@ export default function KineticHeroTitle() {
         <motion.div
           aria-hidden
           style={{ x: depthX, y: depthY, z: -36 }}
-          className="pointer-events-none absolute -left-1 top-1 select-none whitespace-nowrap font-display text-[clamp(3rem,15vw,7.6rem)] font-extrabold leading-[0.82] tracking-[-0.075em] text-accent/[0.12] blur-[1px] sm:text-[clamp(3.8rem,9vw,7.6rem)]"
+          className="pointer-events-none absolute -left-1 top-1 select-none whitespace-nowrap font-display text-[clamp(2.75rem,12vw,6.6rem)] font-extrabold leading-[0.82] tracking-[-0.075em] sm:text-[clamp(3.5rem,8vw,6.6rem)] lg:text-[clamp(4.25rem,6vw,6.6rem)] text-accent/[0.12] blur-[1px] "
         >
           {NAME}
         </motion.div>
@@ -55,7 +55,7 @@ export default function KineticHeroTitle() {
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   style={{ transformOrigin: "50% 100%", transformStyle: "preserve-3d" }}
-                  className="inline-block bg-gradient-to-b from-white via-[#f4f5ff] to-white/55 bg-clip-text text-[clamp(3rem,15vw,7.6rem)] leading-[0.82] text-transparent drop-shadow-[0_12px_32px_rgba(0,0,0,.38)] sm:text-[clamp(3.8rem,9vw,7.6rem)]"
+                  className="inline-block bg-gradient-to-b from-white via-[#f4f5ff] to-white/55 bg-clip-text text-[clamp(3rem,15vw,7.6rem)] leading-[0.82] text-transparent drop-shadow-[0_12px_32px_rgba(0,0,0,.38)] "
                 >
                   {letter}
                 </motion.span>
@@ -86,13 +86,13 @@ export default function KineticHeroTitle() {
           animate={reducedMotion ? undefined : { y: [0, -7, 0], rotateZ: [-1.5, 1.2, -1.5] }}
           transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
           style={{ z: 50 }}
-          className="pointer-events-none absolute -right-7 top-[-18px] hidden border border-white/[0.08] bg-black/30 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.18em] text-white/35 backdrop-blur-md md:block"
+          className="pointer-events-none absolute right-0 top-[-28px] hidden border border-white/[0.08] bg-black/30 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.18em] text-white/35 backdrop-blur-md xl:block"
         >
           engineer / builder
         </motion.div>
       </motion.div>
 
-      <div className="pointer-events-none absolute -left-[7vw] top-1/2 hidden -translate-y-1/2 -rotate-90 font-mono text-[7px] uppercase tracking-[0.36em] text-white/[0.12] xl:block">
+      <div className="pointer-events-none absolute -left-[72px] top-[68%] hidden -translate-y-1/2 -rotate-90 font-mono text-[7px] uppercase tracking-[0.32em] text-white/[0.10] 2xl:block">
         full stack · artificial intelligence · product systems
       </div>
     </div>
