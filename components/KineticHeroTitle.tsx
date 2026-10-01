@@ -55,7 +55,7 @@ export default function KineticHeroTitle() {
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   style={{ transformOrigin: "50% 100%", transformStyle: "preserve-3d" }}
-                  className="inline-block bg-gradient-to-b from-white via-[#f4f5ff] to-white/55 bg-clip-text text-[clamp(3rem,15vw,7.6rem)] leading-[0.82] text-transparent drop-shadow-[0_12px_32px_rgba(0,0,0,.38)] "
+                  className="inline-block bg-gradient-to-b from-white via-[#f4f5ff] to-white/55 bg-clip-text text-[clamp(2.75rem,12vw,6.6rem)] font-extrabold leading-[0.82] text-transparent drop-shadow-[0_12px_32px_rgba(0,0,0,.38)] sm:text-[clamp(3.5rem,8vw,6.6rem)] lg:text-[clamp(4.25rem,6vw,6.6rem)]"
                 >
                   {letter}
                 </motion.span>
