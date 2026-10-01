@@ -11,6 +11,7 @@ import {
 } from "framer-motion";
 import { useMemo, useRef, useState } from "react";
 import ProjectStack from "@/components/ProjectStack";
+import KineticHeroTitle from "@/components/KineticHeroTitle";
 
 const expertise = [
   { label: "FULL STACK", tools: ["React", "Next.js", "Node", "MongoDB", "APIs"] },
@@ -105,6 +106,26 @@ export default function LandingExperience() {
         />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_84%_18%,rgba(116,92,255,.09),transparent_28%),linear-gradient(to_bottom,transparent_72%,rgba(91,110,245,.045))]" />
 
+        <div className="pointer-events-none absolute inset-0 hidden overflow-hidden lg:block">
+          <motion.div
+            aria-hidden
+            animate={reducedMotion ? undefined : { y: [0, -18, 0], rotateZ: [-2.2, -1.2, -2.2] }}
+            transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -right-[7vw] top-[14%] select-none font-display text-[9rem] font-extrabold leading-none tracking-[-0.08em] text-white/[0.018] [transform:rotateY(-24deg)_rotateZ(-2deg)]"
+          >
+            BUILD
+          </motion.div>
+          <motion.div
+            aria-hidden
+            animate={reducedMotion ? undefined : { y: [0, 15, 0], x: [0, -8, 0] }}
+            transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -left-[4vw] bottom-[7%] select-none font-display text-[7rem] font-extrabold leading-none tracking-[-0.07em] text-accent/[0.026] [transform:rotateY(28deg)_rotateZ(4deg)]"
+          >
+            CREATE
+          </motion.div>
+          <div className="absolute right-[18%] top-[18%] h-[44%] w-px bg-gradient-to-b from-transparent via-accent/10 to-transparent" />
+        </div>
+
         <motion.div
           style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
           className="relative z-10 mx-auto flex max-w-[1180px] flex-col px-5 pb-20 pt-5 sm:px-8 sm:pb-24 lg:min-h-[88svh] lg:px-12 lg:pb-6 lg:pt-6"
@@ -136,35 +157,7 @@ export default function LandingExperience() {
                 Full-stack developer building intelligent products
               </motion.p>
 
-              <h1 className="font-display font-semibold tracking-[-0.078em]">
-                <span className="block overflow-hidden">
-                  <motion.span
-                    initial={{ y: "108%" }}
-                    animate={{ y: 0 }}
-                    transition={{ delay: 0.14, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                    className="block text-[clamp(3rem,15vw,7.4rem)] leading-[0.84] text-[#f2f3f7] sm:text-[clamp(3.8rem,9vw,7.4rem)]"
-                  >
-                    NITYANSH
-                  </motion.span>
-                </span>
-
-                <span className="mt-3 flex items-end gap-4 overflow-hidden">
-                  <motion.span
-                    initial={{ y: "110%" }}
-                    animate={{ y: 0 }}
-                    transition={{ delay: 0.22, duration: 0.88, ease: [0.16, 1, 0.3, 1] }}
-                    className="block text-[clamp(1.05rem,5vw,2.3rem)] leading-none tracking-[-0.05em] text-white/40 sm:text-white/26"
-                  >
-                    RUPESH BAHADUR
-                  </motion.span>
-                  <motion.span
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 0.7, duration: 0.7 }}
-                    className="mb-1 hidden h-px w-24 origin-left bg-gradient-to-r from-accent to-transparent sm:block"
-                  />
-                </span>
-              </h1>
+              <KineticHeroTitle />
 
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
