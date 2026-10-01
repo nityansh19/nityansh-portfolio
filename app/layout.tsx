@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Syne, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 import Loader from "@/components/Loader";
@@ -9,9 +9,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 
-const display = Space_Grotesk({
+const display = Syne({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
