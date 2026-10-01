@@ -116,7 +116,7 @@ export default function ProjectStack() {
 
       <div className="relative mx-auto max-w-[1180px] px-6 pb-20 sm:px-8 md:pb-28">
         {projects.map((project,index)=>(
-          <div key={project.name} className="sticky flex min-h-[100svh] items-center py-10" style={{top:0,zIndex:index+1}}>
+          <div key={project.name} className="relative flex items-center py-8 md:sticky md:top-0 md:min-h-[100svh] md:py-10" style={{zIndex:index+1}}>
             <motion.article
               initial={{opacity:0,y:40,scale:.985}}
               whileInView={{opacity:1,y:0,scale:1}}
@@ -127,7 +127,7 @@ export default function ProjectStack() {
               className="relative w-full overflow-hidden border border-white/[0.10] bg-[#090a0e] shadow-[0_40px_120px_rgba(0,0,0,.48)]"
             >
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,.02),transparent_38%)]" />
-              <div className="relative grid min-h-[70svh] gap-10 p-7 sm:p-10 lg:grid-cols-[.82fr_1.18fr] lg:items-center lg:p-12">
+              <div className="relative grid min-h-0 gap-9 p-5 sm:p-8 md:min-h-[68svh] lg:grid-cols-[.82fr_1.18fr] lg:items-center lg:gap-10 lg:p-10 xl:p-12">
                 <div className="flex h-full flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between gap-4">
@@ -135,7 +135,7 @@ export default function ProjectStack() {
                       <span className="border border-white/[0.08] px-2.5 py-1 font-mono text-[7px] uppercase tracking-[0.13em] text-white/36">{project.status}</span>
                     </div>
                     <p className="mt-10 font-mono text-[8px] uppercase tracking-[0.18em] text-accent/70">{project.eyebrow}</p>
-                    <h3 className="mt-4 font-display text-[clamp(3.8rem,8vw,7.4rem)] font-semibold leading-[0.82] tracking-[-0.075em]">{project.title}</h3>
+                    <h3 className="mt-4 max-w-full break-words font-display text-[clamp(2.75rem,11vw,4.7rem)] font-semibold leading-[0.84] tracking-[-0.07em] sm:text-[clamp(3.4rem,6vw,5rem)]">{project.title}</h3>
                     <p className="mt-6 max-w-xl text-sm leading-7 text-white/43 sm:text-base">{project.description}</p>
                     <div className="mt-7 flex flex-wrap gap-2">{project.stack.map(item=><span key={item} className="border border-white/[0.07] px-3 py-1.5 font-mono text-[7px] uppercase tracking-[0.12em] text-white/28">{item}</span>)}</div>
                   </div>
