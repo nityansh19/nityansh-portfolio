@@ -60,7 +60,7 @@ export default function ProjectCaseStudy({
         <header className="mt-10 grid gap-10 border-b border-white/[0.07] pb-12 md:mt-14 md:grid-cols-[1.15fr_.85fr] md:items-end md:pb-16">
           <div>
             <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-accent/75 sm:text-[9px]">{eyebrow}</p>
-            <h1 className="mt-5 font-display text-[clamp(3.2rem,8vw,7.5rem)] font-semibold leading-[0.86] tracking-[-0.07em]">
+            <h1 className="mt-5 max-w-full break-words font-display text-[clamp(2.75rem,13vw,5.3rem)] font-semibold leading-[0.88] tracking-[-0.065em] sm:text-[clamp(3.4rem,7vw,6.2rem)]">
               {title}
             </h1>
           </div>
