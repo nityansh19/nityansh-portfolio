@@ -43,6 +43,15 @@ const projects = [
     href: "/projects/nitra-chat",
     status: "Active development",
   },
+  {
+    number: "05",
+    title: "Health Tracker",
+    category: "HEALTH · PWA · FULL STACK",
+    description:
+      "A finished mobile-first health log for blood pressure and blood sugar with cloud sync, history, comparisons, weekly reports, charts, PDF sharing and CSV backup.",
+    href: "/projects/health-tracker",
+    status: "v1.0 · Complete · Live",
+  },
 ];
 
 export default function ProjectsPage() {
@@ -74,7 +83,7 @@ export default function ProjectsPage() {
         <div className="mt-20 flex items-center gap-4 md:mt-28">
           <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/20">Project index</span>
           <span className="h-px flex-1 bg-white/[0.07]" />
-          <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/15">01 — 04</span>
+          <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/15">01 — 05</span>
         </div>
 
         <div className="mt-6 space-y-6">

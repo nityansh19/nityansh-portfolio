@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/projects/nivora",
     "/projects/nitra-chat",
     "/projects/personal-ai",
+    "/projects/health-tracker",
     "/cv",
     "/terminal",
     "/contact",
