@@ -114,6 +114,33 @@ const techProfiles = [
   },
 ] as const;
 
+
+const quickPrompts = [
+  {
+    label: "Building",
+    question: "What are you building right now?",
+    answer:
+      "CareerUpAI is my main active build. I also recently finished Health Tracker, a cloud-synced BP and blood sugar PWA, and Nivora, a personal finance product.",
+  },
+  {
+    label: "Stack",
+    question: "What do you actually use?",
+    answer:
+      "Mostly React, Next.js, TypeScript, Node.js, MongoDB and Supabase. I’m also going deeper into Python because AI and backend work are where I want to grow next.",
+  },
+  {
+    label: "Shipped",
+    question: "What have you finished?",
+    answer:
+      "Health Tracker and Nivora are complete v1 products. I care more about shipping usable projects than collecting small tutorial demos.",
+  },
+  {
+    label: "Work",
+    question: "What are you open to?",
+    answer:
+      "Internships, freelance work and product-focused collaborations where I can contribute to real frontend, backend or full-stack work.",
+  },
+] as const;
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-accent/75">{children}</p>;
 }
@@ -123,6 +150,7 @@ export default function LandingExperience() {
   const reducedMotion = useReducedMotion() ?? false;
   const [activeExpertise, setActiveExpertise] = useState(0);
   const [activeTech, setActiveTech] = useState(0);
+  const [activePrompt, setActivePrompt] = useState(0);
   const [profileSrc, setProfileSrc] = useState("https://avatars.githubusercontent.com/u/257083668?v=4");
 
   const px = useMotionValue(0);
@@ -152,6 +180,7 @@ export default function LandingExperience() {
 
   const activeTools = useMemo(() => expertise[activeExpertise].tools, [activeExpertise]);
   const selectedTech = techProfiles[activeTech];
+  const selectedPrompt = quickPrompts[activePrompt];
 
   function handleHeroPointer(event: React.PointerEvent<HTMLElement>) {
     if (reducedMotion || window.matchMedia("(pointer: coarse)").matches) return;
@@ -561,62 +590,158 @@ export default function LandingExperience() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-t border-line py-24 md:py-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_68%_50%,rgba(91,110,245,.07),transparent_38%)]" />
+      <section className="relative overflow-hidden border-t border-line py-20 md:py-28">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute right-[14%] top-[16%] h-[420px] w-[420px] rounded-full bg-accent/[0.055] blur-[150px]" />
+          <div className="absolute left-[8%] bottom-[4%] h-[300px] w-[300px] rounded-full bg-violet-500/[0.025] blur-[120px]" />
+        </div>
+
         <div className="relative mx-auto max-w-[1180px] px-6 sm:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <SectionLabel>05 / Ask the portfolio</SectionLabel>
-              <h2 className="mt-5 font-display text-[clamp(3rem,6vw,5.8rem)] font-semibold leading-[0.92] tracking-[-0.065em]">
-                Less browsing.<br /><span className="text-white/34">More answers.</span>
+              <SectionLabel>05 / Quick answers</SectionLabel>
+              <h2 className="mt-4 max-w-4xl font-display text-[clamp(2.8rem,6vw,5.6rem)] font-semibold leading-[0.92] tracking-[-0.065em]">
+                Skip the scroll.
+                <span className="text-white/28"> Ask the useful stuff.</span>
               </h2>
-              <p className="mt-6 max-w-md text-sm leading-7 text-ink-dim">
-                A recruiter-friendly terminal that answers questions about my projects, stack, current focus and what I am building.
-              </p>
-              <Link
-                data-cursor-label="OPEN"
-                href="/terminal"
-                className="mt-8 inline-flex items-center gap-3 rounded-full border border-white/[0.12] bg-white/[0.025] px-5 py-3 text-sm text-white/76 transition-all hover:-translate-y-1 hover:border-accent/35"
-              >
-                Open interactive terminal <span>→</span>
-              </Link>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              className="overflow-hidden border border-white/[0.10] bg-[#08090d] shadow-[0_30px_100px_rgba(0,0,0,.38)]"
-            >
-              <div className="flex items-center justify-between border-b border-white/[0.07] px-5 py-4">
-                <div className="flex gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-white/15" />
-                  <span className="h-2 w-2 rounded-full bg-white/10" />
-                  <span className="h-2 w-2 rounded-full bg-white/10" />
-                </div>
-                <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-white/20">portfolio@nityansh</span>
-              </div>
-
-              <div className="space-y-5 p-6 font-mono text-[11px] leading-6 sm:p-8 sm:text-xs">
-                <p className="text-white/32">portfolio@nityansh:~$ <span className="text-white/75">what are you building?</span></p>
-                <p className="border-l border-accent/35 pl-4 text-white/52">
-                  Currently building CareerUpAI — an AI-powered career platform focused on smarter career decisions.
-                </p>
-                <p className="text-white/32">portfolio@nityansh:~$ <span className="text-white/75">what technologies do you use?</span></p>
-                <p className="border-l border-accent/35 pl-4 text-white/52">
-                  React, Next.js, Node, MongoDB, Python and modern AI workflows.
-                </p>
-                <p className="text-white/32">
-                  portfolio@nityansh:~ 
-                  <motion.span
-                    animate={{ opacity: [1, 0, 1] }}
-                    transition={{ duration: 1, repeat: Infinity }}
-                    className="inline-block h-4 w-[7px] translate-y-[3px] bg-accent"
-                  />
-                </p>
-              </div>
-            </motion.div>
+            <p className="max-w-xs text-sm leading-6 text-white/36">
+              Four questions recruiters usually care about.
+            </p>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.22 }}
+            className="mt-10 overflow-hidden rounded-[28px] border border-white/[0.10] bg-[#090a0e] shadow-[0_38px_120px_rgba(0,0,0,.4)]"
+          >
+            <div className="grid lg:grid-cols-[0.42fr_0.58fr]">
+              <div className="border-b border-white/[0.08] p-5 sm:p-7 lg:border-b-0 lg:border-r lg:p-8">
+                <div className="flex items-center justify-between">
+                  <p className="font-mono text-[7px] uppercase tracking-[0.18em] text-white/24">
+                    Pick a question
+                  </p>
+                  <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-accent/70">
+                    04 prompts
+                  </span>
+                </div>
+
+                <div className="mt-5 grid gap-2">
+                  {quickPrompts.map((prompt, index) => {
+                    const active = activePrompt === index;
+                    return (
+                      <motion.button
+                        key={prompt.label}
+                        type="button"
+                        onMouseEnter={() => setActivePrompt(index)}
+                        onFocus={() => setActivePrompt(index)}
+                        onClick={() => setActivePrompt(index)}
+                        whileHover={reducedMotion ? undefined : { x: 4 }}
+                        className={
+                          "group flex min-h-[72px] items-center gap-4 rounded-2xl border px-4 py-3 text-left transition-all duration-300 " +
+                          (active
+                            ? "border-accent/40 bg-accent/[0.08]"
+                            : "border-white/[0.07] bg-white/[0.015] hover:border-white/[0.14] hover:bg-white/[0.03]")
+                        }
+                      >
+                        <span
+                          className={
+                            "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border font-mono text-[8px] " +
+                            (active
+                              ? "border-accent/35 bg-accent/[0.10] text-accent"
+                              : "border-white/[0.08] text-white/24")
+                          }
+                        >
+                          0{index + 1}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span
+                            className={
+                              "block font-mono text-[7px] uppercase tracking-[0.15em] " +
+                              (active ? "text-accent/80" : "text-white/22")
+                            }
+                          >
+                            {prompt.label}
+                          </span>
+                          <span
+                            className={
+                              "mt-1 block text-sm leading-5 " +
+                              (active ? "text-white/78" : "text-white/44")
+                            }
+                          >
+                            {prompt.question}
+                          </span>
+                        </span>
+                        <span
+                          className={
+                            "text-sm transition-transform duration-300 group-hover:translate-x-1 " +
+                            (active ? "text-accent" : "text-white/14")
+                          }
+                        >
+                          →
+                        </span>
+                      </motion.button>
+                    );
+                  })}
+                </div>
+
+                <Link
+                  data-cursor-label="OPEN"
+                  href="/terminal"
+                  className="mt-5 flex items-center justify-between rounded-2xl border border-white/[0.09] bg-black/20 px-4 py-3 text-sm text-white/48 transition-all hover:border-accent/30 hover:text-white/78"
+                >
+                  Open full terminal
+                  <span className="text-accent">↗</span>
+                </Link>
+              </div>
+
+              <div className="relative min-h-[420px] overflow-hidden p-5 sm:min-h-[480px] sm:p-7 lg:p-8">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_20%,rgba(91,110,245,.10),transparent_38%)]" />
+                <div className="relative flex h-full flex-col">
+                  <div className="flex items-center justify-between border-b border-white/[0.07] pb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-white/12" />
+                      <span className="h-2 w-2 rounded-full bg-white/08" />
+                      <span className="h-2 w-2 rounded-full bg-accent/65 shadow-[0_0_10px_rgba(91,110,245,.6)]" />
+                    </div>
+                    <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-white/18">
+                      portfolio@nityansh
+                    </span>
+                  </div>
+
+                  <motion.div
+                    key={"prompt-" + activePrompt}
+                    initial={reducedMotion ? false : { opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.28 }}
+                    className="mt-8"
+                  >
+                    <p className="font-mono text-[10px] leading-6 text-white/30 sm:text-xs">
+                      <span className="text-accent/80">portfolio@nityansh:~$</span>{" "}
+                      <span className="text-white/72">{selectedPrompt.question}</span>
+                    </p>
+
+                    <div className="mt-6 border-l border-accent/35 pl-5 sm:pl-6">
+                      <p className="max-w-2xl font-display text-[clamp(1.8rem,3.4vw,3rem)] font-medium leading-[1.12] tracking-[-0.04em] text-white/88">
+                        {selectedPrompt.answer}
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  <div className="mt-auto pt-10">
+                    <div className="flex items-center gap-3 border-t border-white/[0.07] pt-5 font-mono text-[8px] uppercase tracking-[0.15em] text-white/18">
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+                      Interactive preview
+                      <span className="ml-auto text-white/12">
+                        hover or tap a prompt
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
