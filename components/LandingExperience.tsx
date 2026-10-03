@@ -9,15 +9,31 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ProjectStack from "@/components/ProjectStack";
 import KineticHeroTitle from "@/components/KineticHeroTitle";
 
-const expertise = [
-  { label: "FULL STACK", tools: ["React", "Next.js", "Node", "MongoDB", "APIs"] },
-  { label: "AI SYSTEMS", tools: ["Python", "LLM workflows", "Automation", "CareerUpAI"] },
-  { label: "BACKEND", tools: ["Authentication", "REST APIs", "Databases", "Architecture", "Deployment"] },
-  { label: "PRODUCT UX", tools: ["Interaction", "Motion", "Responsive UI", "Product thinking"] },
+const heroSignals = [
+  {
+    label: "BUILDING",
+    title: "CareerUpAI",
+    detail: "Turning a big idea into a real product.",
+  },
+  {
+    label: "LEARNING",
+    title: "Python → AI",
+    detail: "Going deeper instead of rushing the next stack.",
+  },
+  {
+    label: "JUST SHIPPED",
+    title: "Health Tracker",
+    detail: "Small problem. Finished product. Actually useful.",
+  },
+  {
+    label: "DIRECTION",
+    title: "Backend + AI",
+    detail: "Where I want the next level of my work to go.",
+  },
 ];
 
 
@@ -148,7 +164,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function LandingExperience() {
   const heroRef = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion() ?? false;
-  const [activeExpertise, setActiveExpertise] = useState(0);
   const [activeTech, setActiveTech] = useState(0);
   const [activePrompt, setActivePrompt] = useState(0);
   const [profileSrc, setProfileSrc] = useState("https://avatars.githubusercontent.com/u/257083668?v=4");
@@ -178,7 +193,6 @@ export default function LandingExperience() {
   const glowX = useTransform(sx, [-1, 1], ["30%", "70%"]);
   const glowY = useTransform(sy, [-1, 1], ["28%", "72%"]);
 
-  const activeTools = useMemo(() => expertise[activeExpertise].tools, [activeExpertise]);
   const selectedTech = techProfiles[activeTech];
   const selectedPrompt = quickPrompts[activePrompt];
 
@@ -269,7 +283,7 @@ export default function LandingExperience() {
                 className="mb-4 flex max-w-[330px] items-start gap-3 font-mono text-[8px] uppercase leading-4 tracking-[0.18em] text-accent/90 sm:max-w-none sm:items-center sm:text-[9px] sm:tracking-[0.22em]"
               >
                 <span className="h-px w-8 bg-accent" />
-                Full-stack developer building intelligent products
+                BCA student · full-stack builder · moving toward AI
               </motion.p>
 
               <KineticHeroTitle />
@@ -280,56 +294,52 @@ export default function LandingExperience() {
                 transition={{ delay: 0.48, duration: 0.6 }}
                 className="mt-5 max-w-[590px] text-[13px] leading-6 text-white/58 sm:text-[14px] md:text-[15px]"
               >
-                I build polished digital products, backend systems and intelligent experiences — combining engineering depth with product thinking and interaction design.
+                I like taking ideas past the “cool concept” stage and turning them into things people can actually use. Right now I’m building CareerUpAI, getting much better at Python, and pushing deeper into backend and AI.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.56, duration: 0.6 }}
-                className="mt-5 grid max-w-[700px] gap-2.5 md:grid-cols-[1fr_1.05fr]"
+                className="mt-5 max-w-[760px]"
               >
-                <div className="grid grid-cols-2 gap-2">
-                  {expertise.map((item, index) => (
-                    <button
-                      key={item.label}
-                      type="button"
-                      onMouseEnter={() => setActiveExpertise(index)}
-                      onFocus={() => setActiveExpertise(index)}
-                      onClick={() => setActiveExpertise(index)}
-                      className={
-                        "group flex items-center justify-between border px-3 py-2.5 text-left font-mono text-[8px] uppercase tracking-[0.14em] transition-all duration-300 " +
-                        (activeExpertise === index
-                          ? "border-accent/40 bg-accent/[0.07] text-white"
-                          : "border-white/[0.07] bg-white/[0.015] text-white/34 hover:border-white/15 hover:text-white/70")
-                      }
-                    >
-                      <span>{item.label}</span>
-                      <span className={activeExpertise === index ? "text-accent" : "text-white/15"}>
-                        0{index + 1}
-                      </span>
-                    </button>
-                  ))}
+                <div className="mb-2 flex items-center justify-between font-mono text-[7px] uppercase tracking-[0.16em] text-white/20">
+                  <span>Live snapshot</span>
+                  <span className="flex items-center gap-2 text-accent/70">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent shadow-[0_0_10px_rgba(91,110,245,.8)]" />
+                    2026
+                  </span>
                 </div>
 
-                <motion.div layout className="min-h-[102px] border border-white/[0.08] bg-black/20 p-3.5">
-                  <div className="flex items-center justify-between font-mono text-[7px] uppercase tracking-[0.16em] text-white/24">
-                    <span>Focus layer</span>
-                    <span className="text-accent">{expertise[activeExpertise].label}</span>
-                  </div>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {activeTools.map((tool) => (
-                      <motion.span
-                        key={tool}
-                        initial={{ opacity: 0, y: 5 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="border border-white/[0.07] bg-white/[0.025] px-2.5 py-1.5 font-mono text-[8px] tracking-[0.08em] text-white/58"
-                      >
-                        {tool}
-                      </motion.span>
-                    ))}
-                  </div>
-                </motion.div>
+                <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
+                  {heroSignals.map((item, index) => (
+                    <motion.div
+                      key={item.label}
+                      whileHover={reducedMotion ? undefined : { y: -4 }}
+                      className="group relative min-h-[118px] overflow-hidden border border-white/[0.08] bg-white/[0.018] p-3.5 transition-all duration-300 hover:border-accent/25 hover:bg-accent/[0.035] sm:p-4"
+                    >
+                      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:radial-gradient(circle_at_85%_10%,rgba(91,110,245,.16),transparent_48%)]" />
+                      <div className="relative flex h-full flex-col">
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-accent/65">
+                            {item.label}
+                          </span>
+                          <span className="font-mono text-[7px] text-white/12">
+                            0{index + 1}
+                          </span>
+                        </div>
+                        <p className="mt-4 font-display text-lg font-semibold tracking-[-0.04em] text-white/82 sm:text-xl">
+                          {item.title}
+                        </p>
+                        <p className="mt-auto pt-2 text-[11px] leading-5 text-white/30">
+                          {item.detail}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
               </motion.div>
 
               <motion.div
@@ -381,7 +391,7 @@ export default function LandingExperience() {
                       Lucknow, India
                     </div>
                     <div className="absolute bottom-5 left-5 right-5">
-                      <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/34">Currently building</p>
+                      <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/34">Current obsession</p>
                       <div className="mt-2 flex items-end justify-between gap-4">
                         <p className="font-display text-2xl font-semibold tracking-[-0.04em] text-white/92">CareerUpAI</p>
                         <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_18px_rgba(91,110,245,.9)]" />
@@ -396,7 +406,7 @@ export default function LandingExperience() {
                   className="absolute -bottom-5 -left-4 hidden border border-white/[0.10] bg-[#0a0b0f]/86 px-4 py-3 backdrop-blur-xl md:block"
                 >
                   <p className="font-mono text-[7px] uppercase tracking-[0.16em] text-white/25">Focus</p>
-                  <p className="mt-1 text-sm text-white/72">AI × Product × Backend</p>
+                  <p className="mt-1 text-sm text-white/72">Build → learn → ship</p>
                 </motion.div>
 
               </div>
@@ -404,7 +414,7 @@ export default function LandingExperience() {
           </div>
 
           <div className="hidden items-center justify-between border-t border-white/[0.07] pt-5 font-mono text-[8px] uppercase tracking-[0.18em] text-white/22 lg:flex">
-            <span>Full stack → AI systems</span>
+            <span>Full-stack today → AI next</span>
             <motion.span
               animate={reducedMotion ? undefined : { y: [0, 4, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
