@@ -88,12 +88,12 @@ export default function KineticHeroTitle() {
           style={{ z: 50 }}
           className="pointer-events-none absolute right-0 top-[-28px] hidden border border-white/[0.08] bg-black/30 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.18em] text-white/35 backdrop-blur-md xl:block"
         >
-          engineer / builder
+          full-stack / data science
         </motion.div>
       </motion.div>
 
       <div className="pointer-events-none absolute -left-[72px] top-[68%] hidden -translate-y-1/2 -rotate-90 font-mono text-[7px] uppercase tracking-[0.32em] text-white/[0.10] 2xl:block">
-        full stack · artificial intelligence · product systems
+        software engineering · data science · machine learning · AI
       </div>
     </div>
   );
