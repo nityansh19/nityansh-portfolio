@@ -540,7 +540,7 @@ export default function LandingExperience() {
             >
               Scroll to explore ↓
             </motion.span>
-            <span>01 / 06</span>
+            <span>01 / 07</span>
           </div>
         </motion.div>
       </section>
@@ -979,7 +979,7 @@ export default function LandingExperience() {
       <section className="relative overflow-hidden border-t border-line py-24 md:py-32">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(91,110,245,0.10),transparent_34%)]" />
         <div className="relative mx-auto max-w-[1180px] px-6 text-center sm:px-8">
-          <SectionLabel>06 / Let&apos;s build</SectionLabel>
+          <SectionLabel>07 / Let&apos;s build</SectionLabel>
           <h2 className="mx-auto mt-5 max-w-4xl font-display text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.9] tracking-[-0.07em]">
             Have an ambitious idea?
           </h2>
