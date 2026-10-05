@@ -88,7 +88,7 @@ export default function KineticHeroTitle() {
           style={{ z: 50 }}
           className="pointer-events-none absolute right-0 top-[-28px] hidden border border-white/[0.08] bg-black/30 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.18em] text-white/35 backdrop-blur-md xl:block"
         >
-          full-stack / data science
+          full-stack developer / data science learner
         </motion.div>
       </motion.div>
 
