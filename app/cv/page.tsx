@@ -3,10 +3,13 @@
 import Link from "next/link";
 
 const skills = [
-  ["Programming", "JavaScript · TypeScript · Python · C / C++"],
+  ["Programming", "Python · JavaScript · TypeScript · C / C++ · SQL"],
+  ["Data Science", "NumPy · Pandas · Data Cleaning · Exploratory Data Analysis · Data Preprocessing · Jupyter Notebooks · Google Colab"],
+  ["Visualization & Statistics", "Matplotlib · Seaborn · Statistics · Probability · Probability Distributions · Central Limit Theorem"],
+  ["Machine Learning & AI", "scikit-learn · Supervised & Unsupervised ML · Model Training & Evaluation · Neural Network / Deep Learning Foundations · LLMs · RAG"],
   ["Frontend", "React.js · Next.js · HTML5 · CSS3 · Tailwind CSS · Responsive UI · Framer Motion"],
   ["Backend & APIs", "Node.js · Express.js · REST APIs · MongoDB / Mongoose · Authentication · File & PDF processing"],
-  ["Data & Cloud", "Supabase · Firebase / Firestore · Cloudflare D1 / R2 · MySQL"],
+  ["Data, Databases & Cloud", "Supabase · PostgreSQL · Firebase / Firestore · Cloudflare D1 / R2 · MySQL · MongoDB"],
   ["Mobile & Product", "Capacitor · Expo · PWA · Cross-platform app architecture"],
   ["Tools & Delivery", "Git · GitHub · Vite · npm · Vercel · Netlify · Cloudflare · Deployment · Debugging · Testing"],
 ];
@@ -65,7 +68,7 @@ export default function CVPage() {
                 <div>
                   <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent print:text-black/45">Curriculum Vitae</p>
                   <h1 className="mt-4 font-display text-4xl font-semibold tracking-[-0.05em] text-white sm:text-6xl print:text-black">Nityansh Rupesh Bahadur</h1>
-                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40 print:text-black/55">Full Stack Developer · Web &amp; Product Engineer</p>
+                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40 print:text-black/55">Full Stack Developer · Data Science &amp; AI Learner · Product Engineer</p>
                 </div>
                 <div className="font-mono text-[9px] leading-6 text-white/35 sm:text-right print:text-black/55">
                   <div>Lucknow, Uttar Pradesh</div>
@@ -92,7 +95,7 @@ export default function CVPage() {
               <section>
                 <SectionTitle>Professional Profile</SectionTitle>
                 <p className="text-[15px] leading-8 text-ink-dim print:text-black/75">
-                  Full-stack developer focused on building polished, responsive, production-minded web products from idea to deployment. Experienced across modern React interfaces, REST APIs, authentication, databases, cloud persistence, cross-platform app foundations, and deployment workflows. I work best on projects that need both clean user experience and solid application logic, and I am available for freelance websites, dashboards, full-stack applications, API integrations, UI revamps, bug fixing, and deployment work.
+                  Full-stack developer expanding into data science and AI, focused on building polished, production-minded products from idea to deployment. My work now spans modern React interfaces, REST APIs, authentication, databases and cloud persistence alongside Python-based data analysis, SQL, NumPy, Pandas, visualization, statistics and practical machine learning with scikit-learn. I enjoy projects that combine strong product engineering with useful data and intelligent systems.
                 </p>
               </section>
 
@@ -142,6 +145,16 @@ export default function CVPage() {
                       <p className="mt-2 text-sm leading-6 text-ink-dim print:text-black/75">{list}</p>
                     </div>
                   ))}
+                </div>
+              </section>
+
+              <section className="mt-12">
+                <SectionTitle>Latest Achievement</SectionTitle>
+                <div className="rounded-2xl border border-accent/20 bg-accent/[0.05] p-5 print:border-black/15 print:bg-white print:p-0">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-accent/75 print:text-black/45">05 Oct 2026 · CodeWithHarry</p>
+                  <h3 className="mt-3 font-display text-xl text-white print:text-black">The Ultimate Job Ready Data Science Course — Certificate of Completion</h3>
+                  <p className="mt-3 text-sm leading-6 text-ink-dim print:text-black/75">Completed a 203-lecture, hands-on data science curriculum covering Python for data science, NumPy, Pandas, Matplotlib, Seaborn, SQL, probability and statistics, data cleaning and preprocessing, machine learning with scikit-learn, deep-learning foundations, LLMs, Git, Google Colab, and a RAG-based AI teaching assistant project.</p>
+                  <a href="https://www.codewithharry.com/courses/the-ultimate-job-ready-data-science-course" target="_blank" rel="noreferrer" className="mt-3 inline-block font-mono text-[8px] uppercase tracking-[0.12em] text-accent/70 print:text-black/45">Course credential details ↗</a>
                 </div>
               </section>
 
