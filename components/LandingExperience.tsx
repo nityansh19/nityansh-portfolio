@@ -467,6 +467,14 @@ export default function LandingExperience() {
                   <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
                 </Link>
                 <Link
+                  data-cursor-label="CV"
+                  href="/cv"
+                  className="group inline-flex items-center justify-between gap-3 rounded-full border border-accent/20 bg-accent/[0.06] px-5 py-3 text-sm font-medium text-white/78 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-accent/[0.11] sm:gap-8"
+                >
+                  View CV
+                  <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+                </Link>
+                <Link
                   data-cursor-label="HELLO"
                   href="/contact"
                   className="group inline-flex items-center justify-between gap-3 rounded-full border border-white/[0.13] bg-white/[0.03] px-5 py-3 text-sm font-medium text-white/82 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.06] sm:gap-8"
@@ -712,6 +720,109 @@ export default function LandingExperience() {
 
       <section className="relative overflow-hidden border-t border-line py-20 md:py-28">
         <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-[12%] top-[18%] h-[380px] w-[380px] rounded-full bg-accent/[0.05] blur-[145px]" />
+          <div className="absolute right-[8%] bottom-[8%] h-[300px] w-[300px] rounded-full bg-violet-500/[0.025] blur-[120px]" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1180px] px-6 sm:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <SectionLabel>05 / Proof of progress</SectionLabel>
+              <h2 className="mt-4 font-display text-[clamp(2.7rem,5.8vw,5.2rem)] font-semibold leading-[0.92] tracking-[-0.065em]">
+                Learning is useful.
+                <span className="text-white/28"> Proof is better.</span>
+              </h2>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-white/40 lg:justify-self-end">
+              I’m not replacing my full-stack background — I’m adding a data layer to it. The goal is to understand data deeply enough to build products that can analyze, predict and eventually become intelligent.
+            </p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7 }}
+            className="mt-10 overflow-hidden rounded-[28px] border border-white/[0.10] bg-[#090a0e] shadow-[0_38px_120px_rgba(0,0,0,.38)]"
+          >
+            <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="relative border-b border-white/[0.08] p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(91,110,245,.14),transparent_42%)]" />
+                <div className="relative">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-accent/75">Latest achievement</span>
+                    <span className="rounded-full border border-white/[0.08] px-3 py-1.5 font-mono text-[7px] uppercase tracking-[0.14em] text-white/28">05 Oct 2026</span>
+                  </div>
+
+                  <div className="mt-10">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/28">CodeWithHarry</p>
+                    <h3 className="mt-3 max-w-xl font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[0.98] tracking-[-0.055em] text-white">
+                      Ultimate Job Ready
+                      <span className="block text-white/32">Data Science Course</span>
+                    </h3>
+                    <p className="mt-5 max-w-lg text-sm leading-7 text-white/42">
+                      Completed the course and turned it into a new learning track across Python, data analysis, visualization, statistics, SQL and machine learning.
+                    </p>
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <Link
+                      href="/cv"
+                      className="group inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition-transform duration-300 hover:-translate-y-1"
+                    >
+                      See on CV
+                      <span className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+                    </Link>
+                    <a
+                      href="https://www.codewithharry.com/courses/the-ultimate-job-ready-data-science-course"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group inline-flex items-center gap-3 rounded-full border border-white/[0.11] bg-white/[0.025] px-5 py-3 text-sm font-medium text-white/72 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+                    >
+                      Course details
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-8 lg:p-10">
+                <div className="flex items-center justify-between">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/24">What changed in my stack</p>
+                  <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-accent/65">Full-stack + data</span>
+                </div>
+
+                <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                  {[
+                    ["01", "Python for Data", "NumPy · Pandas · notebooks"],
+                    ["02", "Data Analysis", "Cleaning · EDA · preprocessing"],
+                    ["03", "Visualization", "Matplotlib · Seaborn"],
+                    ["04", "Data Foundations", "SQL · statistics · probability"],
+                    ["05", "Machine Learning", "scikit-learn · model evaluation"],
+                    ["06", "AI Direction", "LLMs · RAG · intelligent products"],
+                  ].map(([index, title, detail]) => (
+                    <motion.div
+                      key={title}
+                      whileHover={reducedMotion ? undefined : { y: -3 }}
+                      className="group rounded-2xl border border-white/[0.07] bg-white/[0.018] p-4 transition-all duration-300 hover:border-accent/25 hover:bg-accent/[0.035]"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-[7px] text-accent/60">{index}</span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-white/10 transition-colors group-hover:bg-accent" />
+                      </div>
+                      <p className="mt-5 font-display text-lg font-semibold tracking-[-0.035em] text-white/80">{title}</p>
+                      <p className="mt-2 text-xs leading-5 text-white/30">{detail}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-t border-line py-20 md:py-28">
+        <div className="pointer-events-none absolute inset-0">
           <div className="absolute right-[14%] top-[16%] h-[420px] w-[420px] rounded-full bg-accent/[0.055] blur-[150px]" />
           <div className="absolute left-[8%] bottom-[4%] h-[300px] w-[300px] rounded-full bg-violet-500/[0.025] blur-[120px]" />
         </div>
@@ -719,7 +830,7 @@ export default function LandingExperience() {
         <div className="relative mx-auto max-w-[1180px] px-6 sm:px-8">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <SectionLabel>05 / Quick answers</SectionLabel>
+              <SectionLabel>06 / Quick answers</SectionLabel>
               <h2 className="mt-4 max-w-4xl font-display text-[clamp(2.8rem,6vw,5.6rem)] font-semibold leading-[0.92] tracking-[-0.065em]">
                 Skip the scroll.
                 <span className="text-white/28"> Ask the useful stuff.</span>
