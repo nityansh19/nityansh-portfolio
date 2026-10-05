@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const journey = [
   ["2025", "Getting started", "I started taking web development seriously and spent a lot of time figuring out how things worked instead of just copying tutorials.", "HTML · CSS · JavaScript"],
-  ["2026", "Going deeper", "I moved into full-stack work and started spending more time with React, Node, MongoDB, Python, AI, Docker, Linux, and DevOps.", "React · Node · MongoDB · Python · AI"],
-  ["NOW", "Building", "These days I’m putting what I’ve learned into bigger projects like Nivora and CareerUpAI, while continuing to get better at the parts of software I still don’t know.", "Nivora · CareerUpAI · Full Stack"],
+  ["2026", "Full stack + data", "I moved deeper into full-stack engineering and completed CodeWithHarry’s Ultimate Job Ready Data Science Course, adding Python data analysis, SQL, statistics, visualization and machine learning to my toolkit.", "React · Node · Python · Pandas · SQL · ML"],
+  ["NOW", "Building toward AI", "I’m combining product engineering with data science — building projects like CareerUpAI while strengthening machine learning, LLM and data-system skills.", "CareerUpAI · Data Science · AI Systems"],
 ];
 
 const work = [
@@ -16,10 +16,12 @@ const work = [
 ];
 
 const stack = [
-  ["Frontend", "React · TypeScript · JavaScript · Tailwind", "UI / MOTION / UX"],
+  ["Frontend", "React · Next.js · TypeScript · JavaScript · Tailwind", "UI / MOTION / UX"],
   ["Backend", "Node.js · Express · Flask · Django · REST APIs", "API / LOGIC / SERVICES"],
-  ["Data", "MongoDB · MySQL · Firebase", "DATA / MODELS / FLOW"],
-  ["Engineering", "Python · AI · Docker · Linux · Git · GitHub", "PYTHON / AI / INFRA"],
+  ["Data Science", "Python · NumPy · Pandas · SQL · Jupyter · Google Colab", "ANALYZE / CLEAN / EXPLORE"],
+  ["ML & Visualization", "scikit-learn · Matplotlib · Seaborn · Statistics · Probability", "MODEL / VISUALIZE / EVALUATE"],
+  ["Data & Cloud", "MongoDB · MySQL · Supabase · Firebase", "DATA / MODELS / PERSISTENCE"],
+  ["Engineering & AI", "Git · GitHub · Docker · Linux · LLMs · RAG", "SHIP / AUTOMATE / AI"],
 ];
 
 const principles = [
@@ -38,8 +40,8 @@ export default function AboutExperienceV2() {
         <header className="max-w-5xl">
           <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-accent/70">About / Me</p>
           <h1 className="mt-5 font-display text-[clamp(3.5rem,9vw,8rem)] font-semibold leading-[0.86] tracking-[-0.07em]">A developer<br />who likes to build.</h1>
-          <p className="mt-8 max-w-4xl text-lg leading-8 text-ink-dim sm:text-xl sm:leading-9">I’m Nityansh. I build web applications, spend a lot of time learning, and lately I’ve been getting deeper into Python and AI. I like taking an idea and seeing how far I can take it.</p>
-          <div className="mt-8 flex flex-wrap gap-3">{["Full-Stack Developer", "Python", "AI", "Lucknow, India"].map((item) => <span key={item} className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-2 font-mono text-[8px] uppercase tracking-[0.15em] text-white/35">{item}</span>)}</div>
+          <p className="mt-8 max-w-4xl text-lg leading-8 text-ink-dim sm:text-xl sm:leading-9">I’m Nityansh. I build full-stack web products and I’m now expanding seriously into data science and AI. I’ve completed a job-ready data science course covering Python, data analysis, visualization, SQL, statistics and machine learning, and I’m applying that foundation to the products I build.</p>
+          <div className="mt-8 flex flex-wrap gap-3">{["Full-Stack Developer", "Data Science", "Python", "Machine Learning", "AI", "Lucknow, India"].map((item) => <span key={item} className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-2 font-mono text-[8px] uppercase tracking-[0.15em] text-white/35">{item}</span>)}</div>
         </header>
 
         <section className="mt-20 grid gap-12 border-t border-line pt-12 md:mt-28 md:grid-cols-[0.8fr_1.2fr] md:gap-24 md:pt-16">
