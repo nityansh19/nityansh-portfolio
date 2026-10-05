@@ -33,11 +33,11 @@ const siteUrl = "https://nityansh-portfolio.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nityansh Rupesh Bahadur — Full Stack Developer",
+    default: "Nityansh Rupesh Bahadur — Full Stack Developer learning Data Science",
     template: "%s — Nityansh Rupesh Bahadur",
   },
   description:
-    "Nityansh Rupesh Bahadur is a Full Stack Developer from Lucknow building web applications and exploring Python and AI.",
+    "Nityansh Rupesh Bahadur is a Full Stack Developer from Lucknow learning Data Science, Machine Learning and AI while building production-minded web products.",
   applicationName: "Nityansh Rupesh Bahadur Portfolio",
   authors: [{ name: "Nityansh Rupesh Bahadur" }],
   creator: "Nityansh Rupesh Bahadur",
@@ -46,16 +46,16 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Nityansh Rupesh Bahadur",
-    title: "Nityansh Rupesh Bahadur — Full Stack Developer",
+    title: "Nityansh Rupesh Bahadur — Full Stack Developer learning Data Science",
     description:
-      "Portfolio, projects, experience, technical work, and current learning direction.",
+      "Full-stack projects, data science learning, machine learning direction, technical work, and product engineering.",
     locale: "en_IN",
   },
   twitter: {
     card: "summary",
-    title: "Nityansh Rupesh Bahadur — Full Stack Developer",
+    title: "Nityansh Rupesh Bahadur — Full Stack Developer learning Data Science",
     description:
-      "Portfolio, projects, experience, technical work, and current learning direction.",
+      "Full-stack projects, data science learning, machine learning direction, technical work, and product engineering.",
   },
   robots: {
     index: true,
