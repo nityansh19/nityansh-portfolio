@@ -20,19 +20,19 @@ const heroSignals = [
     detail: "Turning a big idea into a real product.",
   },
   {
-    label: "LEARNING",
-    title: "Python → AI",
-    detail: "Going deeper instead of rushing the next stack.",
+    label: "LATEST ACHIEVEMENT",
+    title: "Data Science Certificate",
+    detail: "Completed CodeWithHarry’s Ultimate Job Ready Data Science Course.",
   },
   {
-    label: "JUST SHIPPED",
-    title: "Health Tracker",
-    detail: "Small problem. Finished product. Actually useful.",
+    label: "DATA SCIENCE",
+    title: "Python → ML",
+    detail: "Working with data analysis, visualization, statistics and machine learning.",
   },
   {
     label: "DIRECTION",
-    title: "Backend + AI",
-    detail: "Where I want the next level of my work to go.",
+    title: "AI + Data Systems",
+    detail: "Combining full-stack engineering with data science and practical AI.",
   },
 ];
 
@@ -43,7 +43,7 @@ const techProfiles = [
     mark: "JS",
     type: "Language",
     level: "Core",
-    blurb: "The language behind most of my web work — interfaces, APIs and product logic.",
+    blurb: "The language behind much of my web work — interfaces, APIs and product logic.",
     uses: ["React UI", "APIs", "App logic"],
     projects: ["CareerUpAI", "Health Tracker", "Nitra Chat"],
   },
@@ -52,18 +52,81 @@ const techProfiles = [
     mark: "TS",
     type: "Language",
     level: "Building with",
-    blurb: "What I use when a codebase gets bigger and I want the data and components to stay predictable.",
+    blurb: "What I use when a codebase gets bigger and I want data, components and refactors to stay predictable.",
     uses: ["Typed UI", "Data models", "Safer refactors"],
     projects: ["Portfolio", "Nivora", "Health Tracker"],
   },
   {
     name: "Python",
     mark: "PY",
-    type: "Language",
-    level: "Deepening",
-    blurb: "My main focus right now for problem solving, backend work and the path into AI.",
-    uses: ["Scripting", "Backend", "AI foundations"],
-    projects: ["Learning builds", "AI experiments"],
+    type: "Data / AI",
+    level: "Core focus",
+    blurb: "My main language for data science, scripting, problem solving, backend experiments and the path into AI.",
+    uses: ["Data analysis", "Automation", "ML workflows"],
+    projects: ["Data science projects", "AI experiments"],
+  },
+  {
+    name: "SQL",
+    mark: "SQL",
+    type: "Data",
+    level: "Course-trained",
+    blurb: "I use SQL to query relational data, filter and aggregate datasets, join tables and prepare data for analysis.",
+    uses: ["Queries", "Joins", "Aggregation"],
+    projects: ["Data science practice", "Analytics workflows"],
+  },
+  {
+    name: "NumPy",
+    mark: "NP",
+    type: "Data Science",
+    level: "Course-trained",
+    blurb: "The numerical foundation I use for arrays, vectorized operations and efficient data-oriented computation in Python.",
+    uses: ["Arrays", "Numerical computing", "Preprocessing"],
+    projects: ["Data analysis projects", "ML preparation"],
+  },
+  {
+    name: "Pandas",
+    mark: "PD",
+    type: "Data Science",
+    level: "Course-trained",
+    blurb: "My primary toolkit for loading, cleaning, transforming, exploring and analyzing tabular datasets.",
+    uses: ["Data cleaning", "EDA", "Transformation"],
+    projects: ["Data analysis projects", "Dataset exploration"],
+  },
+  {
+    name: "Matplotlib / Seaborn",
+    mark: "VIZ",
+    type: "Visualization",
+    level: "Course-trained",
+    blurb: "Used to turn raw datasets into clear charts, distributions, comparisons and exploratory visual stories.",
+    uses: ["Charts", "EDA", "Visual analysis"],
+    projects: ["Data visualization", "Analysis reports"],
+  },
+  {
+    name: "scikit-learn",
+    mark: "SK",
+    type: "Machine Learning",
+    level: "Applied",
+    blurb: "My practical machine-learning toolkit for preprocessing, training models, evaluating results and building repeatable ML workflows.",
+    uses: ["ML models", "Preprocessing", "Evaluation"],
+    projects: ["Machine learning practice", "Predictive workflows"],
+  },
+  {
+    name: "Statistics & Probability",
+    mark: "Σ",
+    type: "Data Science",
+    level: "Foundation",
+    blurb: "The mathematical layer behind interpreting data, distributions, uncertainty and the behavior of machine-learning models.",
+    uses: ["Distributions", "Inference", "Model reasoning"],
+    projects: ["Data science coursework", "ML foundations"],
+  },
+  {
+    name: "Jupyter / Colab",
+    mark: "NB",
+    type: "Workflow",
+    level: "Working with",
+    blurb: "Interactive notebook environments I use to explore datasets, document experiments and iterate quickly on analysis.",
+    uses: ["Notebooks", "Experiments", "Documentation"],
+    projects: ["Data science notebooks", "ML experiments"],
   },
   {
     name: "React",
@@ -120,13 +183,22 @@ const techProfiles = [
     projects: ["Every web project"],
   },
   {
-    name: "C / C++",
-    mark: "C+",
-    type: "Language",
-    level: "Foundation",
-    blurb: "Where I built programming fundamentals and got comfortable thinking about logic before frameworks.",
-    uses: ["Logic", "Problem solving", "Fundamentals"],
-    projects: ["Academic + practice work"],
+    name: "Git / GitHub",
+    mark: "GIT",
+    type: "Engineering",
+    level: "Daily use",
+    blurb: "The version-control workflow I use to track changes, manage projects and ship work safely.",
+    uses: ["Version control", "Collaboration", "Delivery"],
+    projects: ["Every active project"],
+  },
+  {
+    name: "LLMs / RAG",
+    mark: "AI",
+    type: "Applied AI",
+    level: "Exploring",
+    blurb: "I’m learning how large language models and retrieval-augmented generation can be used inside useful, data-aware products.",
+    uses: ["LLM workflows", "Retrieval", "AI products"],
+    projects: ["AI teaching assistant coursework", "CareerUpAI direction"],
   },
 ] as const;
 
@@ -142,7 +214,7 @@ const quickPrompts = [
     label: "Stack",
     question: "What do you actually use?",
     answer:
-      "Mostly React, Next.js, TypeScript, Node.js, MongoDB and Supabase. I’m also going deeper into Python because AI and backend work are where I want to grow next.",
+      "My stack now spans full-stack development and data science: React, Next.js, TypeScript, Node.js, MongoDB and Supabase alongside Python, SQL, NumPy, Pandas, Matplotlib, Seaborn, scikit-learn and Jupyter/Colab.",
   },
   {
     label: "Shipped",
@@ -283,7 +355,7 @@ export default function LandingExperience() {
                 className="mb-4 flex max-w-[330px] items-start gap-3 font-mono text-[8px] uppercase leading-4 tracking-[0.18em] text-accent/90 sm:max-w-none sm:items-center sm:text-[9px] sm:tracking-[0.22em]"
               >
                 <span className="h-px w-8 bg-accent" />
-                BCA student · full-stack builder · moving toward AI
+                BCA student · full-stack builder · data science + AI
               </motion.p>
 
               <KineticHeroTitle />
@@ -294,7 +366,7 @@ export default function LandingExperience() {
                 transition={{ delay: 0.48, duration: 0.6 }}
                 className="mt-5 max-w-[590px] text-[13px] leading-6 text-white/58 sm:text-[14px] md:text-[15px]"
               >
-                I like taking ideas past the “cool concept” stage and turning them into things people can actually use. Right now I’m building CareerUpAI, getting much better at Python, and pushing deeper into backend and AI.
+                I like taking ideas past the “cool concept” stage and turning them into things people can actually use. Alongside full-stack development, I’ve now completed a job-ready data science course and I’m building deeper skills in Python, analytics, machine learning and AI.
               </motion.p>
 
               <motion.div
@@ -414,7 +486,7 @@ export default function LandingExperience() {
           </div>
 
           <div className="hidden items-center justify-between border-t border-white/[0.07] pt-5 font-mono text-[8px] uppercase tracking-[0.18em] text-white/22 lg:flex">
-            <span>Full-stack today → AI next</span>
+            <span>Full-stack + data science → AI systems</span>
             <motion.span
               animate={reducedMotion ? undefined : { y: [0, 4, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
