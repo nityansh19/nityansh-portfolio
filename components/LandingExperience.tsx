@@ -452,8 +452,6 @@ export default function LandingExperience() {
                 </div>
               </motion.div>
 
-              </motion.div>
-
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -503,7 +501,7 @@ export default function LandingExperience() {
                       Lucknow, India
                     </div>
                     <div className="absolute bottom-5 left-5 right-5">
-                      <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/34">Current obsession</p>
+                      <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/34">Current build</p>
                       <div className="mt-2 flex items-end justify-between gap-4">
                         <p className="font-display text-2xl font-semibold tracking-[-0.04em] text-white/92">CareerUpAI</p>
                         <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_18px_rgba(91,110,245,.9)]" />
@@ -518,7 +516,7 @@ export default function LandingExperience() {
                   className="absolute -bottom-5 -left-4 hidden border border-white/[0.10] bg-[#0a0b0f]/86 px-4 py-3 backdrop-blur-xl md:block"
                 >
                   <p className="font-mono text-[7px] uppercase tracking-[0.16em] text-white/25">Focus</p>
-                  <p className="mt-1 text-sm text-white/72">Build → learn → ship</p>
+                  <p className="mt-1 text-sm text-white/72">Python → Data → ML</p>
                 </motion.div>
 
               </div>
