@@ -17,7 +17,7 @@ const heroSignals = [
   {
     label: "BUILDING",
     title: "CareerUpAI",
-    detail: "Turning a big idea into a real product.",
+    detail: "Shipping a real full-stack product while pushing deeper into intelligent systems.",
   },
   {
     label: "LATEST ACHIEVEMENT",
@@ -25,14 +25,14 @@ const heroSignals = [
     detail: "Completed CodeWithHarry’s Ultimate Job Ready Data Science Course.",
   },
   {
-    label: "DATA SCIENCE",
-    title: "Python → ML",
-    detail: "Working with data analysis, visualization, statistics and machine learning.",
+    label: "CURRENT FOCUS",
+    title: "Data → ML",
+    detail: "Python, SQL, analysis, visualization, statistics and machine learning.",
   },
   {
-    label: "DIRECTION",
-    title: "AI + Data Systems",
-    detail: "Combining full-stack engineering with data science and practical AI.",
+    label: "ROLE",
+    title: "Full-Stack + Data",
+    detail: "A product-focused developer now building a serious data science foundation.",
   },
 ];
 
@@ -129,6 +129,24 @@ const techProfiles = [
     projects: ["Data science notebooks", "ML experiments"],
   },
   {
+    name: "Data Analysis / EDA",
+    mark: "EDA",
+    type: "Data Science",
+    level: "Practicing",
+    blurb: "I’m learning how to inspect, clean and understand datasets before jumping into models — from missing values and outliers to patterns, correlations and useful features.",
+    uses: ["Exploration", "Data cleaning", "Feature understanding"],
+    projects: ["Data science notebooks", "Dataset case studies"],
+  },
+  {
+    name: "Machine Learning",
+    mark: "ML",
+    type: "AI / Data Science",
+    level: "Learning",
+    blurb: "I’m building a practical foundation in supervised and unsupervised learning, model selection, evaluation and the reasoning behind predictive systems.",
+    uses: ["Regression", "Classification", "Clustering"],
+    projects: ["ML practice", "Predictive experiments"],
+  },
+  {
     name: "React",
     mark: "R",
     type: "Frontend",
@@ -214,7 +232,7 @@ const quickPrompts = [
     label: "Stack",
     question: "What do you actually use?",
     answer:
-      "My stack now spans full-stack development and data science: React, Next.js, TypeScript, Node.js, MongoDB and Supabase alongside Python, SQL, NumPy, Pandas, Matplotlib, Seaborn, scikit-learn and Jupyter/Colab.",
+      "My stack now spans full-stack development and data science: React, Next.js, TypeScript, Node.js, MongoDB and Supabase alongside Python, SQL, NumPy, Pandas, Matplotlib, Seaborn, scikit-learn, Jupyter/Colab, data analysis, statistics and machine-learning workflows.",
   },
   {
     label: "Shipped",
@@ -226,7 +244,7 @@ const quickPrompts = [
     label: "Work",
     question: "What are you open to?",
     answer:
-      "Internships, freelance work and product-focused collaborations where I can contribute to real frontend, backend or full-stack work.",
+      "I’m open to internships, freelance work and product-focused collaborations in full-stack development, Python, data analysis and entry-level data science / AI work where I can keep learning while contributing to real products.",
   },
 ] as const;
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -355,7 +373,7 @@ export default function LandingExperience() {
                 className="mb-4 flex max-w-[330px] items-start gap-3 font-mono text-[8px] uppercase leading-4 tracking-[0.18em] text-accent/90 sm:max-w-none sm:items-center sm:text-[9px] sm:tracking-[0.22em]"
               >
                 <span className="h-px w-8 bg-accent" />
-                BCA student · full-stack builder · data science + AI
+                Full-stack developer · learning data science · building toward AI
               </motion.p>
 
               <KineticHeroTitle />
@@ -366,8 +384,30 @@ export default function LandingExperience() {
                 transition={{ delay: 0.48, duration: 0.6 }}
                 className="mt-5 max-w-[590px] text-[13px] leading-6 text-white/58 sm:text-[14px] md:text-[15px]"
               >
-                I like taking ideas past the “cool concept” stage and turning them into things people can actually use. Alongside full-stack development, I’ve now completed a job-ready data science course and I’m building deeper skills in Python, analytics, machine learning and AI.
+                I build polished full-stack products and I’m now expanding seriously into data science. My current focus is Python, SQL, NumPy, Pandas, data visualization, statistics and machine learning — with the long-term goal of building useful AI systems, not just demos.
               </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.53, duration: 0.55 }}
+                className="mt-5 max-w-[760px]"
+              >
+                <div className="mb-2 flex items-center gap-3 font-mono text-[7px] uppercase tracking-[0.16em] text-white/22">
+                  <span className="h-px w-6 bg-accent/55" />
+                  Current data science toolkit
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {["Python", "SQL", "NumPy", "Pandas", "Matplotlib", "Seaborn", "scikit-learn", "Jupyter"].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/[0.09] bg-white/[0.025] px-3 py-1.5 font-mono text-[7px] uppercase tracking-[0.11em] text-white/42 transition-colors hover:border-accent/25 hover:text-accent"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
@@ -486,7 +526,7 @@ export default function LandingExperience() {
           </div>
 
           <div className="hidden items-center justify-between border-t border-white/[0.07] pt-5 font-mono text-[8px] uppercase tracking-[0.18em] text-white/22 lg:flex">
-            <span>Full-stack + data science → AI systems</span>
+            <span>Full-stack developer · learning data science · building toward AI</span>
             <motion.span
               animate={reducedMotion ? undefined : { y: [0, 4, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -511,14 +551,14 @@ export default function LandingExperience() {
         <div className="relative mx-auto max-w-[1240px] px-6 sm:px-8">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <SectionLabel>04 / Stack playground</SectionLabel>
+              <SectionLabel>04 / Skills & stack</SectionLabel>
               <h2 className="mt-4 max-w-4xl font-display text-[clamp(2.8rem,6vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.065em]">
-                The tools I
-                <span className="text-white/28"> actually use.</span>
+                What I build with
+                <span className="text-white/28"> and what I’m learning.</span>
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-6 text-white/38">
-              Tap one. See what I do with it.
+              Full-stack engineering meets a growing data science toolkit.
             </p>
           </div>
 
